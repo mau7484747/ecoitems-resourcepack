@@ -5,7 +5,8 @@
     "top": "minecraft:custom/maumod/maublitztruhe/top",
     "side": "minecraft:custom/maumod/maublitztruhe/side",
     "hole": "minecraft:custom/maumod/maublitztruhe/black_hole",
-    "particle": "minecraft:custom/maumod/maublitztruhe/front"
+    "particle": "minecraft:custom/maumod/maublitztruhe/front",
+    "tendrils": "minecraft:custom/maumod/maublitztruhe/tendrils"
   },
   "elements": [
     {
@@ -78,14 +79,46 @@
     },
     {
       "from": [
-        4,
+        2,
         14,
-        7.7
+        7.56
       ],
       "to": [
-        12,
-        22,
-        8.3
+        14,
+        29,
+        7.66
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tendrils"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tendrils"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        25,
+        7.15
+      ],
+      "to": [
+        15,
+        39,
+        7.45
       ],
       "faces": {
         "north": {
