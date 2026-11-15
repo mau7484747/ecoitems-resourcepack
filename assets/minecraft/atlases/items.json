@@ -5,20 +5,9 @@
       "resource": "minecraft:custom/elitecreatures/volt_wings/winter_wings"
     },
     {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/maublitztruhe/front"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/maublitztruhe/top"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/maublitztruhe/side"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/maublitztruhe/black_hole"
+      "type": "minecraft:directory",
+      "source": "custom/maumod/maublitztruhe",
+      "prefix": "custom/maumod/maublitztruhe/"
     }
   ]
 }
