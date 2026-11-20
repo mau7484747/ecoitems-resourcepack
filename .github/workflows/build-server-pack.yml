@@ -92,9 +92,9 @@ jobs:
                   raise SystemExit("Source chest.json does not contain CMD 2000003.")
               if chest_target.exists():
                   dest_chest_text = chest_target.read_text(encoding="utf-8").strip()
-              while dest_chest_text.endswith("\\n"):
-                  dest_chest_text = dest_chest_text[:-2].rstrip()
-              dest_chest = json.loads(dest_chest_text)
+                  while dest_chest_text.endswith("\\n"):
+                      dest_chest_text = dest_chest_text[:-2].rstrip()
+                  dest_chest = json.loads(dest_chest_text)
                   model = dest_chest.get("model", {})
                   if model.get("type") != "minecraft:range_dispatch" or model.get("property") != "minecraft:custom_model_data":
                       raise SystemExit("Existing chest.json is not a compatible custom_model_data range_dispatch; refusing to overwrite it.")
@@ -121,7 +121,7 @@ jobs:
                       }
                   }
               chest_target.parent.mkdir(parents=True, exist_ok=True)
-              chest_target.write_text(json.dumps(dest_chest, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+              chest_target.write_text(json.dumps(dest_chest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
               # Add only the Christmas directory to the existing item atlas; keep every prior source.
               atlas_target = work / "assets/minecraft/atlases/items.json"
@@ -147,7 +147,7 @@ jobs:
                          for item in sources):
                   sources.append(christmas_source)
               atlas_target.parent.mkdir(parents=True, exist_ok=True)
-              atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+              atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
               # Validate that every direct texture referenced by the model exists in the merged pack.
               model_json = json.loads(model_target.read_text(encoding="utf-8"))
