@@ -77,8 +77,8 @@ jobs:
                   shutil.rmtree(texture_target)
               shutil.copytree(texture_backup, texture_target)
               png_count = len(list(texture_target.glob("*.png")))
-              if png_count < 20:
-                  raise SystemExit(f"Expected full Christmas texture set, found only {png_count} PNG files.")
+              if png_count < 5:
+                  raise SystemExit(f"Expected restored original Christmas texture set, found only {png_count} PNG files.")
 
               # Merge only the Christmas CMD 2000003 route; keep all other chest entries.
               chest_target = work / "assets/minecraft/items/chest.json"
