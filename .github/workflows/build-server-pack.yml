@@ -7,8 +7,8 @@ on:
       - ".github/workflows/build-server-pack.yml"
       - "assets/minecraft/items/chest.json"
       - "assets/minecraft/atlases/items.json"
-      - "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/**"
-      - "BACKUP_WEIHNACHTSKISTE_TEXTURES/assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste/**"
+      - "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste.json"
+      - "assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste.png"
 
 permissions:
   contents: write
@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Merge Christmas crate into the existing server pack
+      - name: Merge original Christmas crate into the existing server pack
         shell: bash
         run: |
           python3 - <<'PY'
@@ -35,19 +35,17 @@ jobs:
 
           repo = Path(".")
           archive = repo / "MAU_Spezialpapier_CMD_1001_1.21.11.zip"
-          if not archive.is_file():
-              raise SystemExit("Existing server pack ZIP was not found.")
 
-          model_rel = Path("assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json")
-          texture_rel = Path("assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste")
-          texture_backup = repo / "BACKUP_WEIHNACHTSKISTE_TEXTURES" / texture_rel
-          model_source = repo / model_rel
+          model_rel = Path("assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste.json")
+          texture_rel = Path("assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste.png")
+          obsolete_model_rel = Path("assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json")
+          obsolete_texture_dir = Path("assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste")
           chest_source = repo / "assets/minecraft/items/chest.json"
           atlas_source = repo / "assets/minecraft/atlases/items.json"
 
-          for required in (model_source, chest_source, atlas_source, texture_backup):
-              if not required.exists():
-                  raise SystemExit(f"Required source is missing: {required}")
+          for required in (archive, model_rel, texture_rel, chest_source, atlas_source):
+              if not required.is_file():
+                  raise SystemExit(f"Required file is missing: {required}")
 
           with tempfile.TemporaryDirectory() as temp_name:
               work = Path(temp_name)
@@ -66,23 +64,30 @@ jobs:
                           target.parent.mkdir(parents=True, exist_ok=True)
                           target.write_bytes(zin.read(info.filename))
 
-              # Replace only the Christmas model itself.
+              # Remove the wrong Blitz-style model path and its newer folder textures.
+              obsolete_model_target = work / obsolete_model_rel
+              if obsolete_model_target.exists():
+                  obsolete_model_target.unlink()
+              obsolete_texture_target = work / obsolete_texture_dir
+              if obsolete_texture_target.exists():
+                  shutil.rmtree(obsolete_texture_target)
+
+              # Install the original separate Christmas model and its single original atlas texture.
               model_target = work / model_rel
-              model_target.parent.mkdir(parents=True, exist_ok=True)
-              shutil.copy2(model_source, model_target)
-
-              # Restore every Christmas texture from the safe backup.
               texture_target = work / texture_rel
-              if texture_target.exists():
-                  shutil.rmtree(texture_target)
-              shutil.copytree(texture_backup, texture_target)
-              png_count = len(list(texture_target.glob("*.png")))
-              if png_count < 5:
-                  raise SystemExit(f"Expected restored original Christmas texture set, found only {png_count} PNG files.")
+              model_target.parent.mkdir(parents=True, exist_ok=True)
+              texture_target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(repo / model_rel, model_target)
+              shutil.copy2(repo / texture_rel, texture_target)
 
-              # Merge only the Christmas CMD 2000003 route; keep all other chest entries.
-              chest_target = work / "assets/minecraft/items/chest.json"
-              source_chest = json.loads(chest_source.read_text(encoding="utf-8"))
+              # Merge only CMD 2000003; keep the Blitztruhe route and all other chest entries.
+              def load_json_clean(path):
+                  raw = path.read_text(encoding="utf-8").strip()
+                  while raw.endswith("\\n"):
+                      raw = raw[:-2].rstrip()
+                  return json.loads(raw)
+
+              source_chest = load_json_clean(chest_source)
               new_entry = next(
                   (entry for entry in source_chest.get("model", {}).get("entries", [])
                    if entry.get("threshold") == 2000003),
@@ -90,14 +95,13 @@ jobs:
               )
               if new_entry is None:
                   raise SystemExit("Source chest.json does not contain CMD 2000003.")
+
+              chest_target = work / "assets/minecraft/items/chest.json"
               if chest_target.exists():
-                  dest_chest_text = chest_target.read_text(encoding="utf-8").strip()
-                  while dest_chest_text.endswith("\\n"):
-                      dest_chest_text = dest_chest_text[:-2].rstrip()
-                  dest_chest = json.loads(dest_chest_text)
+                  dest_chest = load_json_clean(chest_target)
                   model = dest_chest.get("model", {})
                   if model.get("type") != "minecraft:range_dispatch" or model.get("property") != "minecraft:custom_model_data":
-                      raise SystemExit("Existing chest.json is not a compatible custom_model_data range_dispatch; refusing to overwrite it.")
+                      raise SystemExit("Existing chest.json is incompatible; refusing to overwrite it.")
                   entries = model.setdefault("entries", [])
                   replaced = False
                   for i, entry in enumerate(entries):
@@ -108,50 +112,41 @@ jobs:
                       entries.append(new_entry)
                   entries.sort(key=lambda entry: entry.get("threshold", 0))
               else:
-                  dest_chest = {
-                      "model": {
-                          "type": "minecraft:range_dispatch",
-                          "property": "minecraft:custom_model_data",
-                          "entries": [new_entry],
-                          "fallback": source_chest["model"].get("fallback", {
-                              "type": "minecraft:special",
-                              "base": "minecraft:item/chest",
-                              "model": {"type": "minecraft:chest", "texture": "minecraft:normal"}
-                          })
-                      }
-                  }
+                  dest_chest = source_chest
               chest_target.parent.mkdir(parents=True, exist_ok=True)
               chest_target.write_text(json.dumps(dest_chest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-              # Add only the Christmas directory to the existing item atlas; keep every prior source.
+              # Restore the original parent-directory atlas source, preserving every unrelated source.
+              source_atlas = load_json_clean(atlas_source)
               atlas_target = work / "assets/minecraft/atlases/items.json"
-              source_atlas = json.loads(atlas_source.read_text(encoding="utf-8"))
-              christmas_source = next(
-                  (item for item in source_atlas.get("sources", [])
-                   if item.get("type") == "minecraft:directory"
-                   and item.get("source") == "custom/maumod/mausmp/weihnachtskiste"),
-                  None
-              )
-              if christmas_source is None:
-                  raise SystemExit("Christmas texture atlas directory is missing from source atlas.")
               if atlas_target.exists():
-                  dest_atlas_text = atlas_target.read_text(encoding="utf-8").strip()
-                  while dest_atlas_text.endswith("\\n"):
-                      dest_atlas_text = dest_atlas_text[:-2].rstrip()
-                  dest_atlas = json.loads(dest_atlas_text)
+                  dest_atlas = load_json_clean(atlas_target)
               else:
                   dest_atlas = {"sources": []}
               sources = dest_atlas.setdefault("sources", [])
+              sources[:] = [
+                  item for item in sources
+                  if not (item.get("type") == "minecraft:directory"
+                          and item.get("source") == "custom/maumod/mausmp/weihnachtskiste")
+              ]
+              original_source = next(
+                  (item for item in source_atlas.get("sources", [])
+                   if item.get("type") == "minecraft:directory"
+                   and item.get("source") == "custom/maumod/mausmp"),
+                  None
+              )
+              if original_source is None:
+                  raise SystemExit("Original Christmas atlas directory source is missing.")
               if not any(item.get("type") == "minecraft:directory"
-                         and item.get("source") == christmas_source["source"]
+                         and item.get("source") == original_source["source"]
                          for item in sources):
-                  sources.append(christmas_source)
+                  sources.append(original_source)
               atlas_target.parent.mkdir(parents=True, exist_ok=True)
               atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-              # Validate that every direct texture referenced by the model exists in the merged pack.
-              model_json = json.loads(model_target.read_text(encoding="utf-8"))
-              for key, value in model_json.get("textures", {}).items():
+              # Validate that the restored model and its original texture are both present.
+              model_json = load_json_clean(model_target)
+              for value in model_json.get("textures", {}).values():
                   if not isinstance(value, str) or value.startswith("#"):
                       continue
                   namespace, location = value.split(":", 1)
@@ -159,9 +154,8 @@ jobs:
                   if not texture_file.is_file():
                       raise SystemExit(f"Model texture is missing from merged pack: {texture_file}")
 
-              # Keep the server pack's original pack.mcmeta and every unrelated file intact.
               if not (work / "pack.mcmeta").is_file():
-                  shutil.copy2(repo / "pack.mcmeta", work / "pack.mcmeta")
+                  raise SystemExit("Existing pack.mcmeta is missing; pack identity metadata was not changed.")
 
               temp_zip = archive.with_suffix(".tmp.zip")
               with zipfile.ZipFile(temp_zip, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as zout:
@@ -176,17 +170,19 @@ jobs:
                   names = set(check.namelist())
                   required_paths = {
                       model_rel.as_posix(),
+                      texture_rel.as_posix(),
                       "assets/minecraft/items/chest.json",
                       "assets/minecraft/atlases/items.json",
                       "pack.mcmeta",
                   }
                   if not required_paths.issubset(names):
-                      raise SystemExit("One or more required merged pack files are missing.")
+                      raise SystemExit("One or more required pack files are missing.")
+                  if obsolete_model_rel.as_posix() in names:
+                      raise SystemExit("Obsolete Blitz-style Christmas model path remains in the ZIP.")
               temp_zip.replace(archive)
-              print(f"Updated the existing server ZIP in place: {archive}")
-              print(f"Kept original unrelated pack files; copied {png_count} Christmas PNG textures.")
-              print(f"Final ZIP size: {archive.stat().st_size} bytes")
-          PY
+              print(f"Updated existing server ZIP without changing its name or pack metadata: {archive}")
+              print("Restored original 45-element Christmas model and original Christmas texture.")
+              print("Preserved the existing resource-pack URL, pack.mcmeta and unrelated items.")
 
       - name: Commit updated server ZIP
         shell: bash
@@ -197,6 +193,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Server pack ZIP was already current."
           else
-            git commit -m "Build combined server pack with updated Christmas crate"
+            git commit -m "Build server pack with original Christmas crate model"
             git push origin HEAD:main
           fi
