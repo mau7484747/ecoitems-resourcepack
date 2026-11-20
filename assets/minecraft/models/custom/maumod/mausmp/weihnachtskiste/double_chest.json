@@ -1,0 +1,188 @@
+{
+  "textures": {
+    "front": "minecraft:custom/maumod/mausmp/weihnachtskiste/front",
+    "back": "minecraft:custom/maumod/mausmp/weihnachtskiste/front",
+    "top": "minecraft:custom/maumod/mausmp/weihnachtskiste/top",
+    "side": "minecraft:custom/maumod/mausmp/weihnachtskiste/side",
+    "hole": "minecraft:custom/maumod/mausmp/weihnachtskiste/black_hole",
+    "particle": "minecraft:custom/maumod/mausmp/weihnachtskiste/front",
+    "tendrils": "minecraft:custom/maumod/mausmp/weihnachtskiste/tendrils"
+  },
+  "elements": [
+    {
+      "from": [
+        -8,
+        0,
+        0
+      ],
+      "to": [
+        24,
+        14,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#front"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#back"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            8
+          ],
+          "texture": "#top"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#side"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        14,
+        7.56
+      ],
+      "to": [
+        14,
+        24,
+        7.66
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tendrils"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#tendrils"
+        }
+      }
+    },
+    {
+      "from": [
+        1,
+        22,
+        7.15
+      ],
+      "to": [
+        15,
+        32,
+        7.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#hole"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#hole"
+        }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        25,
+        225,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.42,
+        0.42,
+        0.42
+      ]
+    },
+    "ground": {
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  }
+}
