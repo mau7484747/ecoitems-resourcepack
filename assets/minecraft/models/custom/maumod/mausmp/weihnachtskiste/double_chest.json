@@ -12,16 +12,16 @@
     "reindeer": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer",
     "sleigh": "minecraft:custom/maumod/mausmp/weihnachtskiste/sleigh",
     "details": "minecraft:custom/maumod/mausmp/weihnachtskiste/crate_details",
-    "fur": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer",
-    "furLight": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer",
-    "cream": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer",
+    "fur": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer_fur",
+    "furLight": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer_fur_light",
+    "cream": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer_cream",
     "antler": "minecraft:custom/maumod/mausmp/weihnachtskiste/antler",
     "nose": "minecraft:custom/maumod/mausmp/weihnachtskiste/nose_red",
     "hoof": "minecraft:custom/maumod/mausmp/weihnachtskiste/nose_brown",
     "harness": "minecraft:custom/maumod/mausmp/weihnachtskiste/red_harness",
     "eye": "minecraft:custom/maumod/mausmp/weihnachtskiste/reindeer_eye",
     "gold": "minecraft:custom/maumod/mausmp/weihnachtskiste/gold_detail",
-    "sleigh_red": "minecraft:custom/maumod/mausmp/weihnachtskiste/sleigh_red",
+    "sleigh_red": "minecraft:custom/maumod/mausmp/weihnachtskiste/sleigh_body_new",
     "dark": "minecraft:custom/maumod/mausmp/weihnachtskiste/nose_brown",
     "frame": "minecraft:custom/maumod/mausmp/weihnachtskiste/lantern_frame",
     "glow": "minecraft:custom/maumod/mausmp/weihnachtskiste/lantern_glow"
@@ -7841,8 +7841,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7850,8 +7850,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7859,8 +7859,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7868,8 +7868,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7877,8 +7877,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7886,8 +7886,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         }
@@ -7907,55 +7907,55 @@
       "faces": {
         "north": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "south": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "east": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "west": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "up": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "down": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         }
@@ -7977,8 +7977,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7986,8 +7986,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -7995,8 +7995,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8004,8 +8004,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8013,8 +8013,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8022,8 +8022,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         }
@@ -8043,55 +8043,55 @@
       "faces": {
         "north": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "south": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "east": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "west": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "up": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "down": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         }
@@ -8113,8 +8113,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8122,8 +8122,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8131,8 +8131,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8140,8 +8140,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8149,8 +8149,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         },
@@ -8158,8 +8158,8 @@
           "uv": [
             0,
             0,
-            4,
-            4
+            16,
+            16
           ],
           "texture": "#fur"
         }
@@ -8179,55 +8179,55 @@
       "faces": {
         "north": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "south": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "east": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "west": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "up": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "down": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         }
@@ -8248,54 +8248,54 @@
         "north": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "south": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "east": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "west": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "up": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "down": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         }
@@ -8384,54 +8384,54 @@
         "north": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "south": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "east": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "west": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "up": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "down": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         }
@@ -8452,54 +8452,54 @@
         "north": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "south": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "east": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "west": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "up": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         },
         "down": {
           "uv": [
             0,
-            4,
-            4,
-            8
+            0,
+            16,
+            16
           ],
           "texture": "#cream"
         }
@@ -8587,55 +8587,55 @@
       "faces": {
         "north": {
           "uv": [
-            12,
+            0,
             0,
             16,
-            4
+            16
           ],
           "texture": "#cream"
         },
         "south": {
           "uv": [
-            12,
+            0,
             0,
             16,
-            4
+            16
           ],
           "texture": "#cream"
         },
         "east": {
           "uv": [
-            12,
+            0,
             0,
             16,
-            4
+            16
           ],
           "texture": "#cream"
         },
         "west": {
           "uv": [
-            12,
+            0,
             0,
             16,
-            4
+            16
           ],
           "texture": "#cream"
         },
         "up": {
           "uv": [
-            12,
+            0,
             0,
             16,
-            4
+            16
           ],
           "texture": "#cream"
         },
         "down": {
           "uv": [
-            12,
+            0,
             0,
             16,
-            4
+            16
           ],
           "texture": "#cream"
         }
@@ -9675,55 +9675,55 @@
       "faces": {
         "north": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "south": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "east": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "west": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "up": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "down": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         }
@@ -9743,55 +9743,55 @@
       "faces": {
         "north": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "south": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "east": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "west": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "up": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         },
         "down": {
           "uv": [
-            4,
             0,
-            8,
-            4
+            0,
+            16,
+            16
           ],
           "texture": "#furLight"
         }
