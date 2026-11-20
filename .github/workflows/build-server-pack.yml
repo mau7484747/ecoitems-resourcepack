@@ -91,7 +91,10 @@ jobs:
               if new_entry is None:
                   raise SystemExit("Source chest.json does not contain CMD 2000003.")
               if chest_target.exists():
-                  dest_chest = json.loads(chest_target.read_text(encoding="utf-8"))
+                  dest_chest_text = chest_target.read_text(encoding="utf-8").strip()
+              while dest_chest_text.endswith("\\n"):
+                  dest_chest_text = dest_chest_text[:-2].rstrip()
+              dest_chest = json.loads(dest_chest_text)
                   model = dest_chest.get("model", {})
                   if model.get("type") != "minecraft:range_dispatch" or model.get("property") != "minecraft:custom_model_data":
                       raise SystemExit("Existing chest.json is not a compatible custom_model_data range_dispatch; refusing to overwrite it.")
@@ -132,7 +135,10 @@ jobs:
               if christmas_source is None:
                   raise SystemExit("Christmas texture atlas directory is missing from source atlas.")
               if atlas_target.exists():
-                  dest_atlas = json.loads(atlas_target.read_text(encoding="utf-8"))
+                  dest_atlas_text = atlas_target.read_text(encoding="utf-8").strip()
+                  while dest_atlas_text.endswith("\\n"):
+                      dest_atlas_text = dest_atlas_text[:-2].rstrip()
+                  dest_atlas = json.loads(dest_atlas_text)
               else:
                   dest_atlas = {"sources": []}
               sources = dest_atlas.setdefault("sources", [])
