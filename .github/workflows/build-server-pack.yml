@@ -1,0 +1,196 @@
+name: Build combined server resource pack
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-server-pack.yml"
+      - "assets/minecraft/items/chest.json"
+      - "assets/minecraft/atlases/items.json"
+      - "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/**"
+      - "BACKUP_WEIHNACHTSKISTE_TEXTURES/assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    if: contains(github.event.head_commit.message, '[build-server-pack]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Merge Christmas crate into the existing server pack
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import shutil
+          import tempfile
+          import zipfile
+          from pathlib import Path
+
+          repo = Path(".")
+          archive = repo / "MAU_Spezialpapier_CMD_1001_1.21.11.zip"
+          if not archive.is_file():
+              raise SystemExit("Existing server pack ZIP was not found.")
+
+          model_rel = Path("assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json")
+          texture_rel = Path("assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste")
+          texture_backup = repo / "BACKUP_WEIHNACHTSKISTE_TEXTURES" / texture_rel
+          model_source = repo / model_rel
+          chest_source = repo / "assets/minecraft/items/chest.json"
+          atlas_source = repo / "assets/minecraft/atlases/items.json"
+
+          for required in (model_source, chest_source, atlas_source, texture_backup):
+              if not required.exists():
+                  raise SystemExit(f"Required source is missing: {required}")
+
+          with tempfile.TemporaryDirectory() as temp_name:
+              work = Path(temp_name)
+              with zipfile.ZipFile(archive, "r") as zin:
+                  bad = zin.testzip()
+                  if bad:
+                      raise SystemExit(f"Original server ZIP failed CRC check at: {bad}")
+                  for info in zin.infolist():
+                      member = Path(info.filename)
+                      if member.is_absolute() or ".." in member.parts:
+                          raise SystemExit(f"Unsafe ZIP path rejected: {info.filename}")
+                      target = work / member
+                      if info.is_dir():
+                          target.mkdir(parents=True, exist_ok=True)
+                      else:
+                          target.parent.mkdir(parents=True, exist_ok=True)
+                          target.write_bytes(zin.read(info.filename))
+
+              # Replace only the Christmas model itself.
+              model_target = work / model_rel
+              model_target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(model_source, model_target)
+
+              # Restore every Christmas texture from the safe backup.
+              texture_target = work / texture_rel
+              if texture_target.exists():
+                  shutil.rmtree(texture_target)
+              shutil.copytree(texture_backup, texture_target)
+              png_count = len(list(texture_target.glob("*.png")))
+              if png_count < 20:
+                  raise SystemExit(f"Expected full Christmas texture set, found only {png_count} PNG files.")
+
+              # Merge only the Christmas CMD 2000003 route; keep all other chest entries.
+              chest_target = work / "assets/minecraft/items/chest.json"
+              source_chest = json.loads(chest_source.read_text(encoding="utf-8"))
+              new_entry = next(
+                  (entry for entry in source_chest.get("model", {}).get("entries", [])
+                   if entry.get("threshold") == 2000003),
+                  None
+              )
+              if new_entry is None:
+                  raise SystemExit("Source chest.json does not contain CMD 2000003.")
+              if chest_target.exists():
+                  dest_chest = json.loads(chest_target.read_text(encoding="utf-8"))
+                  model = dest_chest.get("model", {})
+                  if model.get("type") != "minecraft:range_dispatch" or model.get("property") != "minecraft:custom_model_data":
+                      raise SystemExit("Existing chest.json is not a compatible custom_model_data range_dispatch; refusing to overwrite it.")
+                  entries = model.setdefault("entries", [])
+                  replaced = False
+                  for i, entry in enumerate(entries):
+                      if entry.get("threshold") == 2000003:
+                          entries[i] = new_entry
+                          replaced = True
+                  if not replaced:
+                      entries.append(new_entry)
+                  entries.sort(key=lambda entry: entry.get("threshold", 0))
+              else:
+                  dest_chest = {
+                      "model": {
+                          "type": "minecraft:range_dispatch",
+                          "property": "minecraft:custom_model_data",
+                          "entries": [new_entry],
+                          "fallback": source_chest["model"].get("fallback", {
+                              "type": "minecraft:special",
+                              "base": "minecraft:item/chest",
+                              "model": {"type": "minecraft:chest", "texture": "minecraft:normal"}
+                          })
+                      }
+                  }
+              chest_target.parent.mkdir(parents=True, exist_ok=True)
+              chest_target.write_text(json.dumps(dest_chest, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+
+              # Add only the Christmas directory to the existing item atlas; keep every prior source.
+              atlas_target = work / "assets/minecraft/atlases/items.json"
+              source_atlas = json.loads(atlas_source.read_text(encoding="utf-8"))
+              christmas_source = next(
+                  (item for item in source_atlas.get("sources", [])
+                   if item.get("type") == "minecraft:directory"
+                   and item.get("source") == "custom/maumod/mausmp/weihnachtskiste"),
+                  None
+              )
+              if christmas_source is None:
+                  raise SystemExit("Christmas texture atlas directory is missing from source atlas.")
+              if atlas_target.exists():
+                  dest_atlas = json.loads(atlas_target.read_text(encoding="utf-8"))
+              else:
+                  dest_atlas = {"sources": []}
+              sources = dest_atlas.setdefault("sources", [])
+              if not any(item.get("type") == "minecraft:directory"
+                         and item.get("source") == christmas_source["source"]
+                         for item in sources):
+                  sources.append(christmas_source)
+              atlas_target.parent.mkdir(parents=True, exist_ok=True)
+              atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+
+              # Validate that every direct texture referenced by the model exists in the merged pack.
+              model_json = json.loads(model_target.read_text(encoding="utf-8"))
+              for key, value in model_json.get("textures", {}).items():
+                  if not isinstance(value, str) or value.startswith("#"):
+                      continue
+                  namespace, location = value.split(":", 1)
+                  texture_file = work / "assets" / namespace / "textures" / (location + ".png")
+                  if not texture_file.is_file():
+                      raise SystemExit(f"Model texture is missing from merged pack: {texture_file}")
+
+              # Keep the server pack's original pack.mcmeta and every unrelated file intact.
+              if not (work / "pack.mcmeta").is_file():
+                  shutil.copy2(repo / "pack.mcmeta", work / "pack.mcmeta")
+
+              temp_zip = archive.with_suffix(".tmp.zip")
+              with zipfile.ZipFile(temp_zip, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as zout:
+                  for file in sorted(work.rglob("*")):
+                      if file.is_file():
+                          zout.write(file, file.relative_to(work).as_posix())
+
+              with zipfile.ZipFile(temp_zip, "r") as check:
+                  bad = check.testzip()
+                  if bad:
+                      raise SystemExit(f"New server ZIP failed CRC check at: {bad}")
+                  names = set(check.namelist())
+                  required_paths = {
+                      model_rel.as_posix(),
+                      "assets/minecraft/items/chest.json",
+                      "assets/minecraft/atlases/items.json",
+                      "pack.mcmeta",
+                  }
+                  if not required_paths.issubset(names):
+                      raise SystemExit("One or more required merged pack files are missing.")
+              temp_zip.replace(archive)
+              print(f"Updated the existing server ZIP in place: {archive}")
+              print(f"Kept original unrelated pack files; copied {png_count} Christmas PNG textures.")
+              print(f"Final ZIP size: {archive.stat().st_size} bytes")
+          PY
+
+      - name: Commit updated server ZIP
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip
+          if git diff --cached --quiet; then
+            echo "Server pack ZIP was already current."
+          else
+            git commit -m "Build combined server pack with updated Christmas crate"
+            git push origin HEAD:main
+          fi
