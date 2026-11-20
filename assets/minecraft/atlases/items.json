@@ -10,24 +10,9 @@
       "prefix": "custom/maumod/maublitztruhe/"
     },
     {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/mausmp/weihnachtskiste/front"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/mausmp/weihnachtskiste/top"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/mausmp/weihnachtskiste/side"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/mausmp/weihnachtskiste/black_hole"
-    },
-    {
-      "type": "minecraft:single",
-      "resource": "minecraft:custom/maumod/mausmp/weihnachtskiste/tendrils"
+      "type": "minecraft:directory",
+      "source": "custom/maumod/mausmp/weihnachtskiste",
+      "prefix": "custom/maumod/mausmp/weihnachtskiste/"
     }
   ]
 }
