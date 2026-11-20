@@ -8,6 +8,11 @@
       "type": "minecraft:directory",
       "source": "custom/maumod/maublitztruhe",
       "prefix": "custom/maumod/maublitztruhe/"
+    },
+    {
+      "type": "minecraft:directory",
+      "source": "custom/maumod/mausmp",
+      "prefix": "custom/maumod/mausmp/"
     }
   ]
 }

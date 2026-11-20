@@ -9,6 +9,13 @@
           "type": "minecraft:model",
           "model": "minecraft:custom/maumod/maublitztruhe/double_chest"
         }
+      },
+      {
+        "threshold": 2000003,
+        "model": {
+          "type": "minecraft:model",
+          "model": "minecraft:custom/maumod/mausmp/weihnachtskiste"
+        }
       }
     ],
     "fallback": {

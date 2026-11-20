@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "description": "MAUSMP | MAU Blitztruhe & Weihnachtskiste",
+    "min_format": [
+      75,
+      0
+    ],
+    "max_format": [
+      75,
+      0
+    ]
+  }
+}
