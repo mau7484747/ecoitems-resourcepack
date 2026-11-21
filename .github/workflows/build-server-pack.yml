@@ -154,7 +154,15 @@ jobs:
                      for element in model_json.get("elements", [])
                      for frm,to in front_uprights):
                   raise SystemExit("One of the two circled front uprights is still in the model.")
-              if min(element["from"][2] for element in model_json["elements"][111:201]) < 6.8:
+              reindeer_textures = {"#fur", "#furLight", "#cream", "#antler", "#nose", "#hoof", "#harness", "#eye"}
+              reindeer_elements = [
+                  element for element in model_json.get("elements", [])
+                  if any(face.get("texture") in reindeer_textures
+                         for face in element.get("faces", {}).values())
+              ]
+              if not reindeer_elements:
+                  raise SystemExit("The reindeer geometry could not be identified.")
+              if min(element["from"][2] for element in reindeer_elements) < 6.8:
                   raise SystemExit("The reindeer were not moved far enough back.")
               if sum(1 for element in model_json.get("elements", [])
                      if any(face.get("texture") == "#glow" for face in element.get("faces", {}).values())) < 16:
@@ -169,7 +177,7 @@ jobs:
                          and abs(element.get("to", [0,0,0])[1] - 9.15) < 0.002
                          for element in model_json.get("elements", [])):
                   raise SystemExit("The solid fill does not reach the underside of the elk display floor.")
-              if max(element["to"][1] for element in model_json["elements"][111:201]) >= 14.0:
+              if max(element["to"][1] for element in reindeer_elements) >= 14.0:
                   raise SystemExit("The two reindeer were not reduced to the requested smaller scale.")
               if not any(element.get("from") == [1.82, 9.27, 5.72]
                          for element in model_json.get("elements", [])):
