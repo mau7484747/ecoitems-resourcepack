@@ -185,11 +185,30 @@ jobs:
               max_y = max(element["to"][1] for element in reindeer_elements)
               min_z = min(element["from"][2] for element in reindeer_elements)
               max_z = max(element["to"][2] for element in reindeer_elements)
-              if not (9.7 <= min_x and max_x <= 11.3 and 5.3 <= min_z and max_z <= 10.7):
+              nose_element = next(
+                  element for element in reindeer_elements
+                  if any(face.get("texture") == "#nose" for face in element.get("faces", {}).values())
+              )
+              nose_x = (nose_element["from"][0] + nose_element["to"][0]) / 2
+              torso_elements = [
+                  element for element in reindeer_elements
+                  if any(face.get("texture") == "#fur" for face in element.get("faces", {}).values())
+                  and element["to"][1] < 12.0
+              ]
+              torso_x = sum((e["from"][0] + e["to"][0]) / 2 for e in torso_elements) / len(torso_elements)
+              if not (7.5 <= min_x and max_x <= 13.5 and 7.0 <= min_z and max_z <= 9.0):
                   raise SystemExit(
-                      f"The single reindeer is not in the intended rotated position: "
+                      f"The reindeer is outside its intended +X-facing pose: "
                       f"x={min_x:.2f}..{max_x:.2f}, z={min_z:.2f}..{max_z:.2f}."
                   )
+              if nose_x <= torso_x + 1.0:
+                  raise SystemExit("The reindeer's muzzle does not point toward +X with the sleigh.")
+              tether_elements = [
+                  element for element in model_json.get("elements", [])
+                  if any(face.get("texture") == "#tether" for face in element.get("faces", {}).values())
+              ]
+              if len(tether_elements) != 7:
+                  raise SystemExit(f"Expected seven connected gold lead segments, found {len(tether_elements)}.")
               if min_y < 9.15 or max_y > 14.5:
                   raise SystemExit("The reindeer legs or antlers are outside the display height.")
               if sum(1 for element in model_json.get("elements", [])

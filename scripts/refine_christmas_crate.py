@@ -580,11 +580,13 @@ def replace_with_single_reindeer(model):
     target_center_z = 8.00
     horizontal_scale = 0.82
 
+    # The sleigh is oriented toward +X. Turn the reindeer 180 degrees around Y
+    # from its source pose so its muzzle points the same way, away from the sleigh.
     def transform_x(x, z):
-        return target_center_x - (z - source_center_z) * horizontal_scale
+        return target_center_x - (x - source_center_x) * horizontal_scale
 
     def transform_z(x, z):
-        return target_center_z + (x - source_center_x) * horizontal_scale
+        return target_center_z - (z - source_center_z) * horizontal_scale
 
     # Source-space indices 125..136 are the twelve parts of the four legs.
     for source_index, element in enumerate(deer, start=111):
@@ -626,18 +628,15 @@ def replace_with_single_reindeer(model):
             origin[0] = round(transform_x(ox, oz), 5)
             origin[2] = round(transform_z(ox, oz), 5)
             axis = rotation.get("axis")
-            if axis == "x":
-                rotation["axis"] = "z"
-            elif axis == "z":
-                rotation["axis"] = "x"
+            if axis in ("x", "z"):
                 rotation["angle"] = -rotation["angle"]
 
         # Rotate the horizontal face directions as well, preserving each face's UV coordinates.
         face_map = {
-            "north": "east",
-            "east": "south",
-            "south": "west",
-            "west": "north",
+            "north": "south",
+            "south": "north",
+            "east": "west",
+            "west": "east",
             "up": "up",
             "down": "down"
         }
@@ -652,9 +651,46 @@ def replace_with_single_reindeer(model):
         f"removed {removed_animals} old animal/trace elements and {removed_gold} leftover gold blocks."
     )
     print(
-        "Reindeer placement: rotated 90 degrees toward the front glass, "
-        "centered away from the sleigh; four separate thickened legs and hooves retained."
+        "Reindeer placement: facing +X in the same direction as the sleigh, "
+        "with four separate thickened legs and hooves retained."
     )
+
+
+def add_golden_tether(model):
+    """Add one continuous-looking golden lead from the sleigh prow to the reindeer's harness."""
+    # Drop any previous tether run so repeated builds cannot stack duplicate cord pieces.
+    model["elements"] = [
+        element for element in model.get("elements", [])
+        if not any(face.get("texture") == "#tether"
+                   for face in element.get("faces", {}).values())
+    ]
+    model.setdefault("textures", {})["tether"] = (
+        "minecraft:custom/maumod/mausmp/weihnachtskiste/gold_detail"
+    )
+
+    # The sleigh's raised prow sits near x=6.5; the turned reindeer's harness is near x=11.5.
+    # A shallow curved line follows the outer side of the reindeer's chest so it remains visible.
+    segments = [
+        ((6.42, 11.08, 7.18), (7.18, 11.16, 7.31)),
+        ((7.10, 11.12, 7.25), (7.88, 11.06, 7.38)),
+        ((7.80, 11.02, 7.32), (8.58, 10.98, 7.43)),
+        ((8.50, 10.94, 7.37), (9.28, 10.96, 7.46)),
+        ((9.20, 10.92, 7.40), (9.98, 10.99, 7.48)),
+        ((9.90, 10.95, 7.42), (10.68, 11.05, 7.50)),
+        ((10.60, 11.01, 7.44), (11.48, 11.14, 7.55)),
+    ]
+    for frm, to in segments:
+        add_box(
+            model,
+            (frm[0], frm[1] - 0.07, frm[2] - 0.055),
+            (to[0], to[1] + 0.07, to[2] + 0.055),
+            "tether"
+        )
+
+    # Small gold eyelets make the connection look attached rather than merely laid across the snow.
+    add_box(model, (6.34, 10.98, 7.10), (6.54, 11.28, 7.42), "gold")
+    add_box(model, (11.34, 11.00, 7.40), (11.62, 11.30, 7.72), "gold")
+    print("Added one visible golden lead from the sleigh prow to the reindeer's chest harness.")
 
 def main():
     if not MODEL.is_file():
@@ -694,6 +730,7 @@ def main():
     duplicate_stage_lanterns(model)
     add_sleigh_details(model)
     replace_with_single_reindeer(model)
+    add_golden_tether(model)
 
     # Add geometry once. The support fits directly below the existing floor/road
     # platform, so it fills the hollow without changing the sleigh, reindeer or trees.
