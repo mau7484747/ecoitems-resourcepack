@@ -144,7 +144,7 @@ jobs:
               # Validate every texture reference and the exact restored geometry.
               model_json = read_json(model_target)
               if len(model_json.get("elements", [])) < 400:
-                  raise SystemExit("Expected the smaller reindeer, detailed sleigh, closed lower support and four-corner 3D lanterns.")
+                  raise SystemExit("Expected one front-facing reindeer with four legs, a detailed sleigh, closed lower support and 3D lanterns.")
               front_uprights = (
                   ([-2.5, 5.5, 12.2], [-1.45, 18.5, 13.46]),
                   ([-2.71, 4.5, 11.99], [-1.24, 6.5, 13.67]),
@@ -205,8 +205,6 @@ jobs:
                          and abs(element.get("to", [0,0,0])[1] - 9.15) < 0.002
                          for element in model_json.get("elements", [])):
                   raise SystemExit("The solid fill does not reach the underside of the elk display floor.")
-              if max(element["to"][1] for element in reindeer_elements) >= 14.0:
-                  raise SystemExit("The two reindeer were not reduced to the requested smaller scale.")
               if not any(element.get("from") == [1.82, 9.27, 5.72]
                          for element in model_json.get("elements", [])):
                   raise SystemExit("The upgraded sleigh runner details are missing.")
@@ -263,6 +261,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Server pack ZIP was already current."
           else
-            git commit -m "Build server pack with smaller reindeer, detailed sleigh and 3D lanterns"
+            git commit -m "Build server pack with one rotated reindeer, four legs and detailed sleigh"
             git push origin HEAD:main
           fi
