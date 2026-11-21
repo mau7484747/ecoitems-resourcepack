@@ -154,14 +154,14 @@ def patch_lamp_sprites(source_path, target_path, is_front):
             # Remove only the two painted lamp sprites. Clean background is copied from
             # the adjacent, undisturbed garland and ribbed red panel.
             patches = [
-                ((4, 16, 30, 70), (34, 16, 60, 70)),
-                ((226, 16, 252, 70), (196, 16, 222, 70)),
+                ((4, 14, 31, 116), (31, 14, 58, 116)),
+                ((225, 14, 252, 116), (198, 14, 225, 116)),
             ]
         else:
             # The side atlas has one lamp high on one end and one lower at the other.
             patches = [
-                ((2, 46, 28, 100), (30, 46, 56, 100)),
-                ((100, 18, 126, 72), (72, 18, 98, 72)),
+                ((0, 14, 29, 114), (29, 14, 58, 114)),
+                ((99, 14, 128, 114), (70, 14, 99, 114)),
             ]
         for target, donor in patches:
             patch = frame.crop(donor)
@@ -304,7 +304,7 @@ def main():
             add_side_lantern(model, side_x, direction, 3.65)
             add_side_lantern(model, side_x, direction, 12.35)
     else:
-        print("Christmas lamp/base geometry already refined; no duplicate cubes added.")
+        print("Christmas support and 3D lamp geometry already present; no duplicate cubes added.")
 
     MODEL.write_text(json.dumps(model, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Refined Christmas model: {len(model['elements'])} geometry elements.")

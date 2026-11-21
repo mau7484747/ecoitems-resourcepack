@@ -184,7 +184,7 @@ jobs:
                           raise SystemExit(f"Final ZIP is missing texture: {png.name}")
               temp_zip.replace(archive)
               print(f"Updated existing server pack: {archive}")
-              print(f"Restored 237-element Christmas model and {len(pngs)} separate PNG textures.")
+              print(f"Packed refined {len(model_json.get('elements', []))}-element Christmas model and {len(pngs)} separate PNG textures.")
               print("Preserved Blitztruhe CMD 2000002, model, pack.mcmeta and unrelated pack files.")
           PY
 
