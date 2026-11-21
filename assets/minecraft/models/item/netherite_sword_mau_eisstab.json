@@ -1,5 +1,5 @@
 {
-  "credit": "MAUSMP - Eiskristall-Stab mit reinweißer, symmetrischer sechszackiger Schneeflocke",
+  "credit": "MAUSMP - weißer, verzierter Stab mit animierter Eis-Spirale",
   "parent": "minecraft:item/handheld",
   "ambientocclusion": true,
   "textures": {
@@ -16,7 +16,8 @@
     "silver": "minecraft:item/netherite_sword_mau_eisstab",
     "gem": "minecraft:item/netherite_sword_mau_eisstab",
     "bright": "minecraft:item/netherite_sword_mau_eisstab",
-    "snowflake": "minecraft:item/netherite_sword_mau_eisstab_snowflake_white"
+    "snowflake": "minecraft:item/netherite_sword_mau_eisstab_snowflake_white",
+    "spiral": "minecraft:item/netherite_sword_mau_eisstab_spiral"
   },
   "elements": [
     {
@@ -3870,6 +3871,108 @@
             16
           ],
           "texture": "#snowflake"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.28,
+        1.72,
+        7.28
+      ],
+      "to": [
+        8.72,
+        5.13,
+        8.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        }
+      },
+      "shade": false
+    },
+    {
+      "from": [
+        7.28,
+        8.33,
+        7.28
+      ],
+      "to": [
+        8.72,
+        12.47,
+        8.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#spiral"
         }
       },
       "shade": false

@@ -21,6 +21,10 @@
     {
       "type": "minecraft:single",
       "resource": "minecraft:item/netherite_sword_mau_eisstab_snowflake_white"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:item/netherite_sword_mau_eisstab_spiral"
     }
   ]
 }
