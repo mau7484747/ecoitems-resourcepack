@@ -507,15 +507,6 @@ def main():
                 frm[1], to[1] = 8.95, 9.09
         print("Extended the solid support to y=9.15 directly beneath the display floor at y=9.18.")
 
-        # Two proper exterior lanterns on the front and two on each side.
-        add_front_lantern(model, -1.28)
-        add_front_lantern(model, 17.28)
-        for side_x, direction in ((-2.50, -1), (18.50, 1)):
-            add_side_lantern(model, side_x, direction, 3.65)
-            add_side_lantern(model, side_x, direction, 12.35)
-    else:
-        print("Christmas support and 3D lamp geometry already present; no duplicate cubes added.")
-
     MODEL.write_text(json.dumps(model, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Refined Christmas model: {len(model['elements'])} geometry elements.")
     print("Added one solid support under the road and six wall-mounted exterior lanterns.")
