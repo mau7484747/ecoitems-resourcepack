@@ -6,11 +6,13 @@ on:
     paths:
       - ".github/workflows/build-server-pack.yml"
       - "scripts/refine_christmas_crate.py"
+      - "scripts/build_winter_pickaxe_texture.py"
       - "BACKUP_WEIHNACHTSKISTE_TEXTURES/ORIGINAL_HIGH_DETAIL/weihnachtskiste.json"
       - "assets/minecraft/items/chest.json"
       - "assets/minecraft/items/netherite_pickaxe.json"
       - "assets/minecraft/models/item/netherite_pickaxe_mau_winter.json"
       - "assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png"
+      - "assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png.mcmeta"
       - "assets/minecraft/atlases/items.json"
       - "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/**"
       - "assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste/**"
@@ -37,6 +39,10 @@ jobs:
         shell: bash
         run: python -m pip install --quiet pillow
 
+      - name: Build animated winter pickaxe texture atlas
+        shell: bash
+        run: python3 scripts/build_winter_pickaxe_texture.py
+
       - name: Improve only the Christmas lanterns and close the hollow below the road
         shell: bash
         run: python3 scripts/refine_christmas_crate.py
@@ -62,8 +68,9 @@ jobs:
           pickaxe_item_source = repo / "assets/minecraft/items/netherite_pickaxe.json"
           pickaxe_model_rel = Path("assets/minecraft/models/item/netherite_pickaxe_mau_winter.json")
           pickaxe_texture_rel = Path("assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png")
+          pickaxe_meta_rel = Path("assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png.mcmeta")
 
-          for required in (archive, model_rel, texture_rel, chest_source, atlas_source, pickaxe_item_source, pickaxe_model_rel, pickaxe_texture_rel):
+          for required in (archive, model_rel, texture_rel, chest_source, atlas_source, pickaxe_item_source, pickaxe_model_rel, pickaxe_texture_rel, pickaxe_meta_rel):
               if not required.exists():
                   raise SystemExit(f"Required file is missing: {required}")
 
@@ -95,7 +102,7 @@ jobs:
               blitz_before = blitz_model.read_bytes() if blitz_model.is_file() else None
 
               # Add the separate MAU winter pickaxe without replacing ordinary netherite pickaxes.
-              for pickaxe_rel in (pickaxe_model_rel, pickaxe_texture_rel):
+              for pickaxe_rel in (pickaxe_model_rel, pickaxe_texture_rel, pickaxe_meta_rel):
                   pickaxe_source = repo / pickaxe_rel
                   pickaxe_target = work / pickaxe_rel
                   pickaxe_target.parent.mkdir(parents=True, exist_ok=True)
@@ -200,6 +207,10 @@ jobs:
                       raise SystemExit("Winter pickaxe contains a malformed or non-volumetric model element.")
               if not (work / pickaxe_texture_rel).is_file():
                   raise SystemExit("Winter pickaxe PNG texture is missing.")
+              animation_meta = read_json(work / pickaxe_meta_rel)
+              animation = animation_meta.get("animation", {})
+              if len(animation.get("frames", [])) < 8 or animation.get("frametime", 0) < 1:
+                  raise SystemExit("Winter pickaxe must have a valid animated texture with at least eight frames.")
               if len(model_json.get("elements", [])) < 400:
                   raise SystemExit("Expected one front-facing reindeer with four legs, a detailed sleigh, closed lower support and 3D lanterns.")
               front_uprights = (
@@ -317,7 +328,7 @@ jobs:
                   names = set(check.namelist())
                   if model_rel.as_posix() not in names or "pack.mcmeta" not in names:
                       raise SystemExit("Required final ZIP files are missing.")
-                  for required_pickaxe in ("assets/minecraft/items/netherite_pickaxe.json", pickaxe_model_rel.as_posix(), pickaxe_texture_rel.as_posix()):
+                  for required_pickaxe in ("assets/minecraft/items/netherite_pickaxe.json", pickaxe_model_rel.as_posix(), pickaxe_texture_rel.as_posix(), pickaxe_meta_rel.as_posix()):
                       if required_pickaxe not in names:
                           raise SystemExit(f"Final ZIP is missing winter pickaxe file: {required_pickaxe}")
                   if obsolete_model.as_posix() in names or obsolete_texture.as_posix() in names:
@@ -336,7 +347,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste scripts/refine_christmas_crate.py assets/minecraft/items/netherite_pickaxe.json assets/minecraft/models/item/netherite_pickaxe_mau_winter.json assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png
+          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste scripts/refine_christmas_crate.py assets/minecraft/items/netherite_pickaxe.json assets/minecraft/models/item/netherite_pickaxe_mau_winter.json assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png.mcmeta scripts/build_winter_pickaxe_texture.py
           if git diff --cached --quiet; then
             echo "Server pack ZIP was already current."
           else
