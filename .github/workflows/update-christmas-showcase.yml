@@ -460,14 +460,14 @@ jobs:
                   ax=cx+side*.22*scale
                   b((ax-.09*scale,9.05,zbase-.1*scale),
                     (ax+.09*scale,10.05*scale,zbase+.08*scale),"antler")
-                  rod_xy(ax+side*.18*scale,9.6*scale,zbase-.02*scale,
+                  rod_xy(ax+side*.18*scale,9.6,zbase-.02*scale,
                          .58*scale,.12*scale,.16*scale,side*32,"antler")
-                  rod_xy(ax+side*.28*scale,9.88*scale,zbase-.02*scale,
+                  rod_xy(ax+side*.28*scale,9.88,zbase-.02*scale,
                          .44*scale,.1*scale,.14*scale,-side*28,"antler")
-                  b((ax+side*.34*scale,9.63*scale,zbase-.1*scale),
-                    (ax+side*.47*scale,9.98*scale,zbase+.08*scale),"antler")
-                  b((ax+side*.51*scale,9.88*scale,zbase-.1*scale),
-                    (ax+side*.63*scale,10.16*scale,zbase+.08*scale),"antler")
+                  b((ax+side*.34*scale,9.63,zbase-.1*scale),
+                    (ax+side*.47*scale,9.98,zbase+.08*scale),"antler")
+                  b((ax+side*.51*scale,9.88,zbase-.1*scale),
+                    (ax+side*.63*scale,10.16,zbase+.08*scale),"antler")
               # tiny gold chest tag
               b((cx-.1*scale,8.03,zbase-.24*scale),(cx+.1*scale,8.22,zbase-.06*scale),"gold")
 
@@ -488,7 +488,7 @@ jobs:
               box((xx-.18,8.1,.02),(xx+.42,8.62,.82),"velvet")
               box((xx-.12,8.7,.18),(xx+.36,8.84,.62),"gold")
           # Matching ornaments and gold hooks on the side flanks.
-          for sx in (.02,15.62):
+          for sx in (.02,15.55):
               for zz in (4.0,8.0,12.0):
                   box((sx,8.9,zz),(sx+.35,9.48,zz+.28),"gold")
                   box((sx,8.15,zz-.3),(sx+.4,8.88,zz+.58),"bow")
