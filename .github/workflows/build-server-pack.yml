@@ -193,6 +193,11 @@ jobs:
                   raise SystemExit("Winter pickaxe must use the handheld item model.")
               if pickaxe_model_json.get("textures", {}).get("layer0") != "minecraft:item/netherite_pickaxe_mau_winter":
                   raise SystemExit("Winter pickaxe texture mapping is incorrect.")
+              if len(pickaxe_model_json.get("elements", [])) < 80:
+                  raise SystemExit("Winter pickaxe must be a full 3D model with at least 80 separate cuboid components.")
+              for element in pickaxe_model_json.get("elements", []):
+                  if len(element.get("from", [])) != 3 or len(element.get("to", [])) != 3 or len(element.get("faces", {})) != 6:
+                      raise SystemExit("Winter pickaxe contains a malformed or non-volumetric model element.")
               if not (work / pickaxe_texture_rel).is_file():
                   raise SystemExit("Winter pickaxe PNG texture is missing.")
               if len(model_json.get("elements", [])) < 400:
