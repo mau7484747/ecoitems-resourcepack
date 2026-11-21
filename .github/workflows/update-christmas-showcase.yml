@@ -533,7 +533,7 @@ jobs:
               if i%3==0:
                   box((xx+.12,12.2,.02),(xx+.34,12.48,.4),"bow")
           bow_front(8,12.95,.02,.62)
-          for sx in (.02,15.66):
+          for sx in (.2,15.66):
               box((sx,12.4,1.0),(sx+.35,12.82,15.0),"fir")
               side_bow(sx,12.9,8,.58,"left" if sx<1 else "right")
 
