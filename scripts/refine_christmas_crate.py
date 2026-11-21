@@ -432,12 +432,12 @@ def replace_flat_lamp_sprites(model):
 
 
 def remove_two_front_uprights(model):
-    """Remove only the two dark front uprights shown in the user's red circles."""
+    """Remove the two remaining dark-red uprights marked in the user's screenshot."""
     targets = (
-        ([-2.5, 5.5, 2.54], [-1.45, 18.5, 3.8]),
-        ([-2.71, 4.5, 2.33], [-1.24, 6.5, 4.01]),
-        ([17.45, 5.5, 2.54], [18.5, 18.5, 3.8]),
-        ([17.24, 4.5, 2.33], [18.71, 6.5, 4.01]),
+        ([-2.5, 5.5, 12.2], [-1.45, 18.5, 13.46]),
+        ([-2.71, 4.5, 11.99], [-1.24, 6.5, 13.67]),
+        ([17.45, 5.5, 12.2], [18.5, 18.5, 13.46]),
+        ([17.24, 4.5, 11.99], [18.71, 6.5, 13.67]),
     )
     def same_point(a, b):
         return len(a) == len(b) and all(abs(float(x)-float(y)) < 0.003 for x,y in zip(a,b))
@@ -450,8 +450,8 @@ def remove_two_front_uprights(model):
         else:
             kept.append(element)
     model["elements"] = kept
-    print(f"Removed exactly the two circled front uprights and their small feet: {removed} cuboids.")
-    print("All six exterior lanterns and all four display lanterns were kept.")
+    print(f"Removed the two screenshot-marked rear uprights and their foot blocks: {removed} cuboids.")
+    print("All lantern geometry and glowing lamp blocks are preserved.")
 
 def move_reindeer_back(model):
     """Shift both reduced reindeer and their sleigh shafts toward the rear of the case."""
