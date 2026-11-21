@@ -116,13 +116,13 @@ jobs:
               # Preserve every existing atlas source and ensure the MAUSMP directory is included.
               atlas_target = work / "assets/minecraft/atlases/items.json"
               source_atlas = read_json(atlas_source)
-              mausmp = next((s for s in source_atlas.get("sources", []) if s.get("type") == "minecraft:directory" and s.get("source") == "custom/maumod/mausmp"), None)
-              if mausmp is None:
-                  raise SystemExit("MAUSMP directory texture source is missing.")
+              christmas_atlas_source = next((s for s in source_atlas.get("sources", []) if s.get("type") == "minecraft:directory" and s.get("source") == "custom/maumod/mausmp/weihnachtskiste"), None)
+              if christmas_atlas_source is None:
+                  raise SystemExit("Christmas texture directory source is missing.")
               dest_atlas = read_json(atlas_target) if atlas_target.exists() else {"sources": []}
               sources = dest_atlas.setdefault("sources", [])
-              if not any(s.get("type") == "minecraft:directory" and s.get("source") == mausmp["source"] for s in sources):
-                  sources.append(mausmp)
+              if not any(s.get("type") == "minecraft:directory" and s.get("source") == christmas_atlas_source["source"] for s in sources):
+                  sources.append(christmas_atlas_source)
               atlas_target.parent.mkdir(parents=True, exist_ok=True)
               atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
