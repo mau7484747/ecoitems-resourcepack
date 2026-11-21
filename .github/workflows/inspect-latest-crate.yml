@@ -1,0 +1,41 @@
+name: Export latest Christmas crate screenshot preview
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/inspect-latest-crate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Create image preview
+        shell: bash
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          source = Path("Screenshot 2026-11-21 110128.png")
+          if not source.is_file():
+              raise SystemExit("Latest crate screenshot not found.")
+          image = Image.open(source).convert("RGB")
+          print("Screenshot dimensions:", image.size)
+          image.thumbnail((1600, 1200), Image.Resampling.LANCZOS)
+          out = Path("preview")
+          out.mkdir(exist_ok=True)
+          image.save(out / "latest-crate.jpg", "JPEG", quality=90, optimize=True)
+          PY
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: latest-crate-preview
+          path: preview/latest-crate.jpg
+          if-no-files-found: error
+          retention-days: 1
