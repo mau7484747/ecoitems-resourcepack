@@ -588,7 +588,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": -36,
+        "angle": -45,
         "rescale": true
       }
     },
@@ -668,7 +668,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": 36,
+        "angle": 45,
         "rescale": true
       }
     },
@@ -748,7 +748,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": -36,
+        "angle": -45,
         "rescale": true
       }
     },
@@ -828,7 +828,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": 36,
+        "angle": 45,
         "rescale": true
       }
     },
@@ -908,7 +908,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": -36,
+        "angle": -45,
         "rescale": true
       }
     },
@@ -988,7 +988,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": 36,
+        "angle": 45,
         "rescale": true
       }
     },
@@ -1068,7 +1068,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": -36,
+        "angle": -45,
         "rescale": true
       }
     },
@@ -1148,7 +1148,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": 36,
+        "angle": 45,
         "rescale": true
       }
     },
@@ -1228,7 +1228,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": -36,
+        "angle": -45,
         "rescale": true
       }
     },
@@ -1308,7 +1308,7 @@
           6.89
         ],
         "axis": "z",
-        "angle": 36,
+        "angle": 45,
         "rescale": true
       }
     },
@@ -1958,7 +1958,7 @@
           6.84
         ],
         "axis": "z",
-        "angle": 20,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -2108,7 +2108,7 @@
           6.84
         ],
         "axis": "z",
-        "angle": 20,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -2188,7 +2188,7 @@
           6.9
         ],
         "axis": "z",
-        "angle": -25,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -2268,7 +2268,7 @@
           6.85
         ],
         "axis": "z",
-        "angle": 25,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -2348,7 +2348,7 @@
           6.92
         ],
         "axis": "z",
-        "angle": -30,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -2428,7 +2428,7 @@
           6.9
         ],
         "axis": "z",
-        "angle": 30,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -3558,7 +3558,7 @@
           8
         ],
         "axis": "z",
-        "angle": -5,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -3638,7 +3638,7 @@
           8
         ],
         "axis": "z",
-        "angle": -13,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -3718,7 +3718,7 @@
           8
         ],
         "axis": "z",
-        "angle": -23,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -3798,7 +3798,7 @@
           8
         ],
         "axis": "z",
-        "angle": 5,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -3878,7 +3878,7 @@
           8
         ],
         "axis": "z",
-        "angle": 13,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -3958,7 +3958,7 @@
           8
         ],
         "axis": "z",
-        "angle": 23,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -4038,7 +4038,7 @@
           8
         ],
         "axis": "z",
-        "angle": -5,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -4118,7 +4118,7 @@
           8
         ],
         "axis": "z",
-        "angle": -14,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -4198,7 +4198,7 @@
           8
         ],
         "axis": "z",
-        "angle": 5,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -4278,7 +4278,7 @@
           8
         ],
         "axis": "z",
-        "angle": 14,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -4438,7 +4438,7 @@
           8
         ],
         "axis": "z",
-        "angle": -8,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -4598,7 +4598,7 @@
           8
         ],
         "axis": "z",
-        "angle": -12,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -4678,7 +4678,7 @@
           8
         ],
         "axis": "z",
-        "angle": 12,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -4838,7 +4838,7 @@
           8
         ],
         "axis": "z",
-        "angle": 8,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -4998,7 +4998,7 @@
           8
         ],
         "axis": "z",
-        "angle": -12,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -5078,7 +5078,7 @@
           8
         ],
         "axis": "z",
-        "angle": 12,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -5158,7 +5158,7 @@
           6.05
         ],
         "axis": "z",
-        "angle": -7,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -5238,7 +5238,7 @@
           6.11
         ],
         "axis": "z",
-        "angle": -17,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -5318,7 +5318,7 @@
           6.05
         ],
         "axis": "z",
-        "angle": 7,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -5398,7 +5398,7 @@
           6.11
         ],
         "axis": "z",
-        "angle": 17,
+        "angle": 22.5,
         "rescale": true
       }
     },
@@ -5478,7 +5478,7 @@
           6.04
         ],
         "axis": "z",
-        "angle": -8,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -5558,7 +5558,7 @@
           6.04
         ],
         "axis": "z",
-        "angle": 8,
+        "angle": 0,
         "rescale": true
       }
     },
@@ -6058,7 +6058,7 @@
           5.8
         ],
         "axis": "z",
-        "angle": -25,
+        "angle": -22.5,
         "rescale": true
       }
     },
@@ -6138,7 +6138,7 @@
           5.8
         ],
         "axis": "z",
-        "angle": 25,
+        "angle": 22.5,
         "rescale": true
       }
     },
