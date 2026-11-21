@@ -154,8 +154,8 @@ def patch_lamp_sprites(source_path, target_path, is_front):
             # Remove only the two painted lamp sprites. Clean background is copied from
             # the adjacent, undisturbed garland and ribbed red panel.
             patches = [
-                ((4, 14, 31, 116), (31, 14, 58, 116)),
-                ((225, 14, 252, 116), (198, 14, 225, 116)),
+                ((4, 14, 31, 116), (60, 14, 87, 116)),
+                ((225, 14, 252, 116), (169, 14, 196, 116)),
             ]
         else:
             # The side atlas has one lamp high on one end and one lower at the other.
