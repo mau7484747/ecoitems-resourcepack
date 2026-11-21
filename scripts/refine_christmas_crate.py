@@ -430,6 +430,67 @@ def replace_flat_lamp_sprites(model):
                 count += 1
     print(f"Removed {count} flat bell/lamp image faces from the 3D model's pillars.")
 
+
+def remove_two_front_uprights(model):
+    """Remove only the two dark front uprights shown in the user's red circles."""
+    targets = (
+        ([-2.5, 5.5, 2.54], [-1.45, 18.5, 3.8]),
+        ([-2.71, 4.5, 2.33], [-1.24, 6.5, 4.01]),
+        ([17.45, 5.5, 2.54], [18.5, 18.5, 3.8]),
+        ([17.24, 4.5, 2.33], [18.71, 6.5, 4.01]),
+    )
+    def same_point(a, b):
+        return len(a) == len(b) and all(abs(float(x)-float(y)) < 0.003 for x,y in zip(a,b))
+    kept = []
+    removed = 0
+    for element in model["elements"]:
+        if any(same_point(element.get("from", []), frm) and same_point(element.get("to", []), to)
+               for frm,to in targets):
+            removed += 1
+        else:
+            kept.append(element)
+    model["elements"] = kept
+    print(f"Removed exactly the two circled front uprights and their small feet: {removed} cuboids.")
+    print("All six exterior lanterns and all four display lanterns were kept.")
+
+def move_reindeer_back(model):
+    """Shift both reduced reindeer and their sleigh shafts toward the rear of the case."""
+    deer = model["elements"][111:201]
+    if not deer:
+        raise SystemExit("Could not find the two reindeer geometry groups.")
+    min_z = min(e["from"][2] for e in deer)
+    if min_z >= 6.8:
+        print(f"Reindeer are already moved back (frontmost Z={min_z:.2f}).")
+        return
+    dz = 1.20
+    for element in deer:
+        for key in ("from", "to"):
+            element[key][2] += dz
+        if "rotation" in element:
+            element["rotation"]["origin"][2] += dz
+
+    # Move the six small bars that attach the sleigh to the reindeer by the same distance.
+    moved_shafts = 0
+    for element in model["elements"][201:]:
+        frm, to = element.get("from"), element.get("to")
+        if not frm or not to:
+            continue
+        is_shaft_part = (
+            5.70 <= frm[0] <= 7.80
+            and 9.98 <= frm[1] <= 10.10
+            and 6.35 <= frm[2] <= 9.75
+            and to[0] <= 8.30
+            and to[1] <= 10.31
+            and 0.12 <= (to[2] - frm[2]) <= 0.24
+        )
+        if is_shaft_part:
+            frm[2] += dz
+            to[2] += dz
+            moved_shafts += 1
+            if "rotation" in element:
+                element["rotation"]["origin"][2] += dz
+    print(f"Moved both reindeer 1.20 blocks further back; moved {moved_shafts} sleigh-shaft parts with them.")
+
 def main():
     if not MODEL.is_file():
         raise SystemExit(f"Missing Christmas model: {MODEL}")
@@ -465,6 +526,8 @@ def main():
     # Replace the flat bell/lamp motifs before adding the real 3D fixtures.
     replace_flat_lamp_sprites(model)
     scale_reindeer(model)
+    move_reindeer_back(model)
+    remove_two_front_uprights(model)
     duplicate_stage_lanterns(model)
     add_sleigh_details(model)
 
