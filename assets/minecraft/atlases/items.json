@@ -11,8 +11,8 @@
     },
     {
       "type": "minecraft:directory",
-      "source": "custom/maumod/mausmp",
-      "prefix": "custom/maumod/mausmp/"
+      "source": "custom/maumod/mausmp/weihnachtskiste",
+      "prefix": "custom/maumod/mausmp/weihnachtskiste/"
     }
   ]
 }

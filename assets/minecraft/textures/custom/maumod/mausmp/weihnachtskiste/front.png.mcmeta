@@ -1,0 +1,13 @@
+{
+  "animation": {
+    "width": 256,
+    "height": 128,
+    "frametime": 3,
+    "frames": [
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+}
