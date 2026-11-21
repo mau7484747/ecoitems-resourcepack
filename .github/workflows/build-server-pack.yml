@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/build-server-pack.yml"
       - "scripts/refine_christmas_crate.py"
+      - "BACKUP_WEIHNACHTSKISTE_TEXTURES/ORIGINAL_HIGH_DETAIL/weihnachtskiste.json"
       - "assets/minecraft/items/chest.json"
       - "assets/minecraft/atlases/items.json"
       - "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/**"
@@ -160,10 +161,37 @@ jobs:
                   if any(face.get("texture") in reindeer_textures
                          for face in element.get("faces", {}).values())
               ]
-              if not reindeer_elements:
-                  raise SystemExit("The reindeer geometry could not be identified.")
-              if min(element["from"][2] for element in reindeer_elements) < 6.8:
-                  raise SystemExit("The reindeer were not moved far enough back.")
+              nose_count = sum(
+                  1 for element in reindeer_elements
+                  if any(face.get("texture") == "#nose" for face in element.get("faces", {}).values())
+              )
+              hoof_count = sum(
+                  1 for element in reindeer_elements
+                  if any(face.get("texture") == "#hoof" for face in element.get("faces", {}).values())
+              )
+              antler_count = sum(
+                  1 for element in reindeer_elements
+                  if any(face.get("texture") == "#antler" for face in element.get("faces", {}).values())
+              )
+              if len(reindeer_elements) != 40 or (nose_count, hoof_count, antler_count) != (1, 4, 12):
+                  raise SystemExit(
+                      f"Expected exactly one complete reindeer with four legs and antlers; "
+                      f"found elements={len(reindeer_elements)}, noses={nose_count}, "
+                      f"hooves={hoof_count}, antler_parts={antler_count}."
+                  )
+              min_x = min(element["from"][0] for element in reindeer_elements)
+              max_x = max(element["to"][0] for element in reindeer_elements)
+              min_y = min(element["from"][1] for element in reindeer_elements)
+              max_y = max(element["to"][1] for element in reindeer_elements)
+              min_z = min(element["from"][2] for element in reindeer_elements)
+              max_z = max(element["to"][2] for element in reindeer_elements)
+              if not (9.7 <= min_x and max_x <= 11.3 and 5.3 <= min_z and max_z <= 10.7):
+                  raise SystemExit(
+                      f"The single reindeer is not in the intended rotated position: "
+                      f"x={min_x:.2f}..{max_x:.2f}, z={min_z:.2f}..{max_z:.2f}."
+                  )
+              if min_y < 9.15 or max_y > 14.5:
+                  raise SystemExit("The reindeer legs or antlers are outside the display height.")
               if sum(1 for element in model_json.get("elements", [])
                      if any(face.get("texture") == "#glow" for face in element.get("faces", {}).values())) < 16:
                   raise SystemExit("The 3D lanterns must remain in place.")

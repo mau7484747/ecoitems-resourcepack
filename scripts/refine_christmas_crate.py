@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw
 
 ROOT = Path(".")
 MODEL = ROOT / "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json"
+HIGH_DETAIL_SOURCE = ROOT / "BACKUP_WEIHNACHTSKISTE_TEXTURES/ORIGINAL_HIGH_DETAIL/weihnachtskiste.json"
 LIVE = ROOT / "assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste"
 BACKUP = ROOT / "BACKUP_WEIHNACHTSKISTE_TEXTURES/assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste"
 
@@ -491,6 +492,170 @@ def move_reindeer_back(model):
                 element["rotation"]["origin"][2] += dz
     print(f"Moved both reindeer 1.20 blocks further back; moved {moved_shafts} sleigh-shaft parts with them.")
 
+
+def replace_with_single_reindeer(model):
+    """Replace the damaged pair with one clean, front-facing reindeer with four visible legs."""
+    import copy
+
+    if not HIGH_DETAIL_SOURCE.is_file():
+        raise SystemExit(f"Missing clean high-detail reindeer source: {HIGH_DETAIL_SOURCE}")
+
+    source_model = json.loads(HIGH_DETAIL_SOURCE.read_text(encoding="utf-8"))
+    source_elements = source_model.get("elements", [])
+    # In the untouched 237-element model, elements 111..152 are one complete reindeer:
+    # torso, neck, muzzle, eyes, four legs/hooves, harness, and both antlers.
+    deer = copy.deepcopy(source_elements[111:153])
+    if len(deer) != 42:
+        raise SystemExit(f"Expected 42 source elements for one complete reindeer, found {len(deer)}.")
+
+    deer_textures = {
+        "#fur", "#furLight", "#cream", "#nose", "#hoof",
+        "#harness", "#eye", "#antler"
+    }
+    source_count = sum(
+        1 for e in deer
+        if any(f.get("texture") in deer_textures for f in e.get("faces", {}).values())
+    )
+    hoof_count = sum(
+        1 for e in deer
+        if any(f.get("texture") == "#hoof" for f in e.get("faces", {}).values())
+    )
+    antler_count = sum(
+        1 for e in deer
+        if any(f.get("texture") == "#antler" for f in e.get("faces", {}).values())
+    )
+    nose_count = sum(
+        1 for e in deer
+        if any(f.get("texture") == "#nose" for f in e.get("faces", {}).values())
+    )
+    if (source_count, hoof_count, antler_count, nose_count) != (40, 4, 12, 1):
+        raise SystemExit(
+            "Clean reindeer source failed validation: "
+            f"elements={source_count}, hooves={hoof_count}, antlers={antler_count}, noses={nose_count}"
+        )
+
+    # Remove every piece of the two old, misaligned animals and both sets of connecting traces.
+    # Their leftover tiny gold harness blocks are also removed by their distinctive coordinates.
+    kept = []
+    removed_animals = 0
+    removed_gold = 0
+    for element in model.get("elements", []):
+        face_textures = {
+            face.get("texture")
+            for face in element.get("faces", {}).values()
+        }
+        if face_textures & deer_textures:
+            removed_animals += 1
+            continue
+
+        frm, to = element.get("from"), element.get("to")
+        is_small_gold = face_textures == {"#gold"} and frm and to
+        if is_small_gold:
+            cx = (frm[0] + to[0]) / 2
+            cy = (frm[1] + to[1]) / 2
+            cz = (frm[2] + to[2]) / 2
+            sx = to[0] - frm[0]
+            sy = to[1] - frm[1]
+            sz = to[2] - frm[2]
+            old_harness_gold = (
+                7.7 <= cx <= 8.8 and 10.8 <= cy <= 11.7
+                and 5.5 <= cz <= 14.0
+                and sx <= 0.55 and sy <= 0.45 and sz <= 0.55
+            )
+            new_harness_gold = (
+                9.5 <= cx <= 11.5 and 11.1 <= cy <= 11.8
+                and 5.2 <= cz <= 10.8
+                and sx <= 0.55 and sy <= 0.45 and sz <= 0.55
+            )
+            if old_harness_gold or new_harness_gold:
+                removed_gold += 1
+                continue
+        kept.append(element)
+
+    # Rotate the reindeer 90 degrees toward the front glass, place it well clear of the sleigh,
+    # and scale its footprint slightly so all four legs remain comfortably inside the snow floor.
+    source_center_x = 9.385
+    source_center_z = 6.55
+    target_center_x = 10.50
+    target_center_z = 8.00
+    horizontal_scale = 0.82
+
+    def transform_x(x, z):
+        return target_center_x - (z - source_center_z) * horizontal_scale
+
+    def transform_z(x, z):
+        return target_center_z + (x - source_center_x) * horizontal_scale
+
+    # Source-space indices 125..136 are the twelve parts of the four legs.
+    for source_index, element in enumerate(deer, start=111):
+        if 125 <= source_index <= 136:
+            # Make the four legs and hooves slightly thicker so they read clearly in-game.
+            for key in ("from", "to"):
+                point = element[key]
+                cx, cz = point[0], point[2]
+                # Expand the full leg cuboid around its own center by 12%.
+                # The opposite corner is handled below, after saving the original bounds.
+            frm0, to0 = element["from"], element["to"]
+            cx = (frm0[0] + to0[0]) / 2
+            cz = (frm0[2] + to0[2]) / 2
+            half_x = (to0[0] - frm0[0]) * 0.56
+            half_z = (to0[2] - frm0[2]) * 0.56
+            element["from"][0], element["to"][0] = cx-half_x, cx+half_x
+            element["from"][2], element["to"][2] = cz-half_z, cz+half_z
+
+        old_from = element["from"][:]
+        old_to = element["to"][:]
+        x_values = (transform_x(old_from[0], old_from[2]), transform_x(old_to[0], old_to[2]))
+        z_values = (transform_z(old_from[0], old_from[2]), transform_z(old_to[0], old_to[2]))
+        element["from"] = [
+            round(min(x_values), 5),
+            old_from[1],
+            round(min(z_values), 5)
+        ]
+        element["to"] = [
+            round(max(x_values), 5),
+            old_to[1],
+            round(max(z_values), 5)
+        ]
+
+        # Rotate each element's own pivot and its local rotation axis with the full model.
+        rotation = element.get("rotation")
+        if rotation:
+            origin = rotation["origin"]
+            ox, oz = origin[0], origin[2]
+            origin[0] = round(transform_x(ox, oz), 5)
+            origin[2] = round(transform_z(ox, oz), 5)
+            axis = rotation.get("axis")
+            if axis == "x":
+                rotation["axis"] = "z"
+            elif axis == "z":
+                rotation["axis"] = "x"
+                rotation["angle"] = -rotation["angle"]
+
+        # Rotate the horizontal face directions as well, preserving each face's UV coordinates.
+        face_map = {
+            "north": "east",
+            "east": "south",
+            "south": "west",
+            "west": "north",
+            "up": "up",
+            "down": "down"
+        }
+        element["faces"] = {
+            face_map.get(direction, direction): face
+            for direction, face in element.get("faces", {}).items()
+        }
+
+    model["elements"] = kept + deer
+    print(
+        "Rebuilt the animal scene with exactly one clean reindeer: "
+        f"removed {removed_animals} old animal/trace elements and {removed_gold} leftover gold blocks."
+    )
+    print(
+        "Reindeer placement: rotated 90 degrees toward the front glass, "
+        "centered away from the sleigh; four separate thickened legs and hooves retained."
+    )
+
 def main():
     if not MODEL.is_file():
         raise SystemExit(f"Missing Christmas model: {MODEL}")
@@ -525,11 +690,10 @@ def main():
 
     # Replace the flat bell/lamp motifs before adding the real 3D fixtures.
     replace_flat_lamp_sprites(model)
-    scale_reindeer(model)
-    move_reindeer_back(model)
     remove_two_front_uprights(model)
     duplicate_stage_lanterns(model)
     add_sleigh_details(model)
+    replace_with_single_reindeer(model)
 
     # Add geometry once. The support fits directly below the existing floor/road
     # platform, so it fills the hollow without changing the sleigh, reindeer or trees.
