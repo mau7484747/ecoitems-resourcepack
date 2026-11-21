@@ -222,6 +222,7 @@ jobs:
           atlas.save(texture_path)
 
           # Model: 16-block-wide decorated gift-display stall with a deep open diorama.
+          # Bounds fix: ornaments stay within the item cube; antler branches keep their full height.
           materials = {
               "velvet":0, "roof":1, "snow":2, "fir":3, "gold":4, "glow":5,
               "glass":6, "hide":7, "antler":8, "bell":9, "bow":10,
