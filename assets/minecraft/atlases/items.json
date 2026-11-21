@@ -13,6 +13,10 @@
       "type": "minecraft:directory",
       "source": "custom/maumod/mausmp/weihnachtskiste",
       "prefix": "custom/maumod/mausmp/weihnachtskiste/"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:item/netherite_pickaxe_mau_winter"
     }
   ]
 }

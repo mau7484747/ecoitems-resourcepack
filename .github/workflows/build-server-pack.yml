@@ -8,6 +8,9 @@ on:
       - "scripts/refine_christmas_crate.py"
       - "BACKUP_WEIHNACHTSKISTE_TEXTURES/ORIGINAL_HIGH_DETAIL/weihnachtskiste.json"
       - "assets/minecraft/items/chest.json"
+      - "assets/minecraft/items/netherite_pickaxe.json"
+      - "assets/minecraft/models/item/netherite_pickaxe_mau_winter.json"
+      - "assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png"
       - "assets/minecraft/atlases/items.json"
       - "assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/**"
       - "assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste/**"
@@ -56,8 +59,11 @@ jobs:
           obsolete_texture = Path("assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste.png")
           chest_source = repo / "assets/minecraft/items/chest.json"
           atlas_source = repo / "assets/minecraft/atlases/items.json"
+          pickaxe_item_source = repo / "assets/minecraft/items/netherite_pickaxe.json"
+          pickaxe_model_rel = Path("assets/minecraft/models/item/netherite_pickaxe_mau_winter.json")
+          pickaxe_texture_rel = Path("assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png")
 
-          for required in (archive, model_rel, texture_rel, chest_source, atlas_source):
+          for required in (archive, model_rel, texture_rel, chest_source, atlas_source, pickaxe_item_source, pickaxe_model_rel, pickaxe_texture_rel):
               if not required.exists():
                   raise SystemExit(f"Required file is missing: {required}")
 
@@ -87,6 +93,13 @@ jobs:
               pack_meta_before = pack_meta.read_bytes()
               blitz_model = work / "assets/minecraft/models/custom/maumod/maublitztruhe/double_chest.json"
               blitz_before = blitz_model.read_bytes() if blitz_model.is_file() else None
+
+              # Add the separate MAU winter pickaxe without replacing ordinary netherite pickaxes.
+              for pickaxe_rel in (pickaxe_model_rel, pickaxe_texture_rel):
+                  pickaxe_source = repo / pickaxe_rel
+                  pickaxe_target = work / pickaxe_rel
+                  pickaxe_target.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(pickaxe_source, pickaxe_target)
 
               # Replace Christmas-only model and texture assets.
               model_target = work / model_rel
@@ -128,6 +141,34 @@ jobs:
               chest_target.parent.mkdir(parents=True, exist_ok=True)
               chest_target.write_text(json.dumps(dest_chest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
+              # Merge the winter CMD entry while retaining existing netherite-pickaxe mappings.
+              pickaxe_target = work / "assets/minecraft/items/netherite_pickaxe.json"
+              source_pickaxe = read_json(pickaxe_item_source)
+              winter_dispatch = source_pickaxe.get("model", {})
+              winter_entry = next((e for e in winter_dispatch.get("entries", []) if e.get("threshold") == 2000004), None)
+              if winter_dispatch.get("type") != "minecraft:range_dispatch" or winter_dispatch.get("property") != "minecraft:custom_model_data" or winter_entry is None:
+                  raise SystemExit("CMD 2000004 winter pickaxe mapping is missing or invalid.")
+              if pickaxe_target.is_file():
+                  dest_pickaxe = read_json(pickaxe_target)
+                  original_model = dest_pickaxe.get("model", {})
+              else:
+                  original_model = winter_dispatch.get("fallback", {"type": "minecraft:model", "model": "minecraft:item/netherite_pickaxe"})
+              if original_model.get("type") == "minecraft:range_dispatch" and original_model.get("property") == "minecraft:custom_model_data":
+                  pickaxe_dispatch = original_model
+                  pickaxe_entries = pickaxe_dispatch.setdefault("entries", [])
+                  pickaxe_entries[:] = [e for e in pickaxe_entries if e.get("threshold") != 2000004]
+                  pickaxe_entries.append(winter_entry)
+                  pickaxe_entries.sort(key=lambda e: e.get("threshold", 0))
+              else:
+                  pickaxe_dispatch = {
+                      "type": "minecraft:range_dispatch",
+                      "property": "minecraft:custom_model_data",
+                      "entries": [winter_entry],
+                      "fallback": original_model
+                  }
+              pickaxe_target.parent.mkdir(parents=True, exist_ok=True)
+              pickaxe_target.write_text(json.dumps({"model": pickaxe_dispatch}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
               # Preserve every existing atlas source and ensure the MAUSMP directory is included.
               atlas_target = work / "assets/minecraft/atlases/items.json"
               source_atlas = read_json(atlas_source)
@@ -140,9 +181,20 @@ jobs:
                   sources.append(christmas_atlas_source)
               atlas_target.parent.mkdir(parents=True, exist_ok=True)
               atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+              pickaxe_atlas_source = {"type": "minecraft:single", "resource": "minecraft:item/netherite_pickaxe_mau_winter"}
+              if not any(s.get("type") == "minecraft:single" and s.get("resource") == pickaxe_atlas_source["resource"] for s in sources):
+                  sources.append(pickaxe_atlas_source)
+                  atlas_target.write_text(json.dumps(dest_atlas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
               # Validate every texture reference and the exact restored geometry.
               model_json = read_json(model_target)
+              pickaxe_model_json = read_json(work / pickaxe_model_rel)
+              if pickaxe_model_json.get("parent") != "minecraft:item/handheld":
+                  raise SystemExit("Winter pickaxe must use the handheld item model.")
+              if pickaxe_model_json.get("textures", {}).get("layer0") != "minecraft:item/netherite_pickaxe_mau_winter":
+                  raise SystemExit("Winter pickaxe texture mapping is incorrect.")
+              if not (work / pickaxe_texture_rel).is_file():
+                  raise SystemExit("Winter pickaxe PNG texture is missing.")
               if len(model_json.get("elements", [])) < 400:
                   raise SystemExit("Expected one front-facing reindeer with four legs, a detailed sleigh, closed lower support and 3D lanterns.")
               front_uprights = (
@@ -260,6 +312,9 @@ jobs:
                   names = set(check.namelist())
                   if model_rel.as_posix() not in names or "pack.mcmeta" not in names:
                       raise SystemExit("Required final ZIP files are missing.")
+                  for required_pickaxe in ("assets/minecraft/items/netherite_pickaxe.json", pickaxe_model_rel.as_posix(), pickaxe_texture_rel.as_posix()):
+                      if required_pickaxe not in names:
+                          raise SystemExit(f"Final ZIP is missing winter pickaxe file: {required_pickaxe}")
                   if obsolete_model.as_posix() in names or obsolete_texture.as_posix() in names:
                       raise SystemExit("Obsolete Christmas atlas files are still in the ZIP.")
                   for png in pngs:
@@ -276,7 +331,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste scripts/refine_christmas_crate.py
+          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste scripts/refine_christmas_crate.py assets/minecraft/items/netherite_pickaxe.json assets/minecraft/models/item/netherite_pickaxe_mau_winter.json assets/minecraft/textures/item/netherite_pickaxe_mau_winter.png
           if git diff --cached --quiet; then
             echo "Server pack ZIP was already current."
           else
