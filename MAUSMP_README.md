@@ -5,26 +5,23 @@
 | MAU Blitztruhe | `minecraft:chest` | `2000002` |
 | MAU Weihnachtskiste | `minecraft:chest` | `2000003` |
 | MAU Winter-Spitzhacke | `minecraft:netherite_pickaxe` | `2000004` |
-| MAU Eiskristall-Stab | `minecraft:netherite_sword` | `2000005` |
+| MAU Eiskristall-Stab (Spezialpapier) | `minecraft:paper` | `1001` |
+| MAU Eiskristall-Stab (Schwert-Variante) | `minecraft:netherite_sword` | `2000005` |
 
-Give the Christmas chest with:
-
-```mcfunction
-/give @p minecraft:chest[minecraft:custom_model_data={floats:[2000003.0]}]
-```
-
-Give the winter pickaxe with:
+Give the Spezialpapier ice staff with:
 
 ```mcfunction
-/give @p minecraft:netherite_pickaxe[minecraft:custom_model_data={floats:[2000004.0]}]
+/give @p minecraft:paper[minecraft:custom_model_data={floats:[1001.0]}] 1
 ```
 
-Give the animated ice staff with:
+Give the sword-mapped version with:
 
 ```mcfunction
 /give @p minecraft:netherite_sword[minecraft:custom_model_data={floats:[2000005.0]}] 1
 ```
 
-The ice staff uses a custom 3D model and an eight-frame animated ice texture. Its server-side right-click behaviour is intentionally separate and can be implemented in Skript by checking the netherite sword's Custom Model Data value `2000005`.
+Both variants use the same custom Eistab model. The art is based on the new icy fantasy staff concept, with a curved crystal crown, wrapped grip, and a separate eight-frame animated frost spiral.
 
-The normal item models remain as fallbacks. Place the resource pack in `.minecraft/resourcepacks` and reload it in Minecraft with `F3` + `T`.
+The server-side right-click behaviour is separate and can be implemented in Skript by checking the relevant item's Custom Model Data value. The normal item models remain as fallbacks.
+
+Place the resource pack in `.minecraft/resourcepacks` and reload it in Minecraft with `F3` + `T`.

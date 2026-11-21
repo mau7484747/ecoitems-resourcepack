@@ -25,6 +25,14 @@
     {
       "type": "minecraft:single",
       "resource": "minecraft:item/netherite_sword_mau_eisstab_spiral"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:item/eistab_base"
+    },
+    {
+      "type": "minecraft:single",
+      "resource": "minecraft:item/eistab_spiral"
     }
   ]
 }
