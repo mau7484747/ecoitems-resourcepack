@@ -1,6 +1,6966 @@
 {
   "parent": "minecraft:item/handheld",
+  "ambientocclusion": true,
   "textures": {
-    "layer0": "minecraft:item/netherite_pickaxe_mau_winter"
-  }
+    "layer0": "minecraft:item/netherite_pickaxe_mau_winter",
+    "particle": "minecraft:item/netherite_pickaxe_mau_winter",
+    "blade": "minecraft:item/netherite_pickaxe_mau_winter",
+    "ice": "minecraft:item/netherite_pickaxe_mau_winter",
+    "gold": "minecraft:item/netherite_pickaxe_mau_winter",
+    "metal": "minecraft:item/netherite_pickaxe_mau_winter",
+    "wood": "minecraft:item/netherite_pickaxe_mau_winter",
+    "velvet": "minecraft:item/netherite_pickaxe_mau_winter",
+    "fur": "minecraft:item/netherite_pickaxe_mau_winter",
+    "green": "minecraft:item/netherite_pickaxe_mau_winter",
+    "star": "minecraft:item/netherite_pickaxe_mau_winter",
+    "candy": "minecraft:item/netherite_pickaxe_mau_winter",
+    "rune": "minecraft:item/netherite_pickaxe_mau_winter",
+    "energy": "minecraft:item/netherite_pickaxe_mau_winter",
+    "bell": "minecraft:item/netherite_pickaxe_mau_winter",
+    "icicle": "minecraft:item/netherite_pickaxe_mau_winter",
+    "brightgold": "minecraft:item/netherite_pickaxe_mau_winter",
+    "frost": "minecraft:item/netherite_pickaxe_mau_winter"
+  },
+  "elements": [
+    {
+      "name": "shaft wood",
+      "from": [
+        7.15,
+        4.15,
+        7.05
+      ],
+      "to": [
+        8.85,
+        11.4,
+        8.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#wood"
+        },
+        "south": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#wood"
+        },
+        "east": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#wood"
+        },
+        "west": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#wood"
+        },
+        "up": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#wood"
+        },
+        "down": {
+          "uv": [
+            0,
+            4,
+            4,
+            8
+          ],
+          "texture": "#wood"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "shaft gold neck",
+      "from": [
+        6.75,
+        10.6,
+        6.6
+      ],
+      "to": [
+        9.25,
+        12,
+        9.4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "candy collar",
+      "from": [
+        6.6,
+        10.35,
+        6.48
+      ],
+      "to": [
+        9.4,
+        10.82,
+        9.52
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "shaft ferrule",
+      "from": [
+        7,
+        4,
+        6.9
+      ],
+      "to": [
+        9,
+        4.45,
+        9.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "velvet grip",
+      "from": [
+        6.95,
+        1.5,
+        6.95
+      ],
+      "to": [
+        9.05,
+        4.05,
+        9.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#velvet"
+        },
+        "south": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#velvet"
+        },
+        "east": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#velvet"
+        },
+        "west": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#velvet"
+        },
+        "up": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#velvet"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            8,
+            8
+          ],
+          "texture": "#velvet"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "upper fur cuff",
+      "from": [
+        6.65,
+        3.82,
+        6.65
+      ],
+      "to": [
+        9.35,
+        4.35,
+        9.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "south": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "east": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "west": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "up": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "down": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "lower fur cuff",
+      "from": [
+        6.65,
+        1.16,
+        6.65
+      ],
+      "to": [
+        9.35,
+        1.72,
+        9.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "south": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "east": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "west": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "up": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        },
+        "down": {
+          "uv": [
+            8,
+            4,
+            12,
+            8
+          ],
+          "texture": "#fur"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "quilt diagonal A 0",
+      "from": [
+        7,
+        1.78,
+        6.82
+      ],
+      "to": [
+        8.98,
+        1.9,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          1.78,
+          6.89
+        ],
+        "axis": "z",
+        "angle": -36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal B 0",
+      "from": [
+        7,
+        1.98,
+        6.82
+      ],
+      "to": [
+        8.98,
+        2.1,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          2.0300000000000002,
+          6.89
+        ],
+        "axis": "z",
+        "angle": 36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal A 1",
+      "from": [
+        7,
+        2.21,
+        6.82
+      ],
+      "to": [
+        8.98,
+        2.33,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          2.21,
+          6.89
+        ],
+        "axis": "z",
+        "angle": -36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal B 1",
+      "from": [
+        7,
+        2.41,
+        6.82
+      ],
+      "to": [
+        8.98,
+        2.53,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          2.46,
+          6.89
+        ],
+        "axis": "z",
+        "angle": 36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal A 2",
+      "from": [
+        7,
+        2.64,
+        6.82
+      ],
+      "to": [
+        8.98,
+        2.7600000000000002,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          2.64,
+          6.89
+        ],
+        "axis": "z",
+        "angle": -36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal B 2",
+      "from": [
+        7,
+        2.8400000000000003,
+        6.82
+      ],
+      "to": [
+        8.98,
+        2.96,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          2.89,
+          6.89
+        ],
+        "axis": "z",
+        "angle": 36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal A 3",
+      "from": [
+        7,
+        3.0700000000000003,
+        6.82
+      ],
+      "to": [
+        8.98,
+        3.1900000000000004,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          3.0700000000000003,
+          6.89
+        ],
+        "axis": "z",
+        "angle": -36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal B 3",
+      "from": [
+        7,
+        3.2700000000000005,
+        6.82
+      ],
+      "to": [
+        8.98,
+        3.39,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          3.3200000000000003,
+          6.89
+        ],
+        "axis": "z",
+        "angle": 36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal A 4",
+      "from": [
+        7,
+        3.5,
+        6.82
+      ],
+      "to": [
+        8.98,
+        3.62,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          3.5,
+          6.89
+        ],
+        "axis": "z",
+        "angle": -36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "quilt diagonal B 4",
+      "from": [
+        7,
+        3.7,
+        6.82
+      ],
+      "to": [
+        8.98,
+        3.82,
+        6.96
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          3.75,
+          6.89
+        ],
+        "axis": "z",
+        "angle": 36,
+        "rescale": true
+      }
+    },
+    {
+      "name": "pommel base ring",
+      "from": [
+        7,
+        0.78,
+        7
+      ],
+      "to": [
+        9,
+        1.05,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "gold pommel",
+      "from": [
+        6.78,
+        0.45,
+        6.78
+      ],
+      "to": [
+        9.22,
+        1.05,
+        9.22
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "pommel cap",
+      "from": [
+        7,
+        1,
+        7
+      ],
+      "to": [
+        9,
+        1.35,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "pommel face filigree",
+      "from": [
+        7.3,
+        0.62,
+        6.67
+      ],
+      "to": [
+        8.7,
+        0.98,
+        6.83
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "star charm loop",
+      "from": [
+        7.65,
+        0.22,
+        7.15
+      ],
+      "to": [
+        8.35,
+        0.55,
+        7.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "hanging star charm",
+      "from": [
+        7.42,
+        0,
+        6.7
+      ],
+      "to": [
+        8.58,
+        0.85,
+        7.12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          0.43,
+          6.9
+        ],
+        "axis": "z",
+        "angle": 45,
+        "rescale": true
+      }
+    },
+    {
+      "name": "rune inlay plate",
+      "from": [
+        7.38,
+        5.2,
+        6.86
+      ],
+      "to": [
+        8.62,
+        10.12,
+        7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "east": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "west": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "up": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "down": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "golden shaft rune 0",
+      "from": [
+        7.63,
+        5.45,
+        6.78
+      ],
+      "to": [
+        8.37,
+        6.07,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        }
+      },
+      "shade": false
+    },
+    {
+      "name": "golden shaft rune 1",
+      "from": [
+        7.63,
+        6.5,
+        6.78
+      ],
+      "to": [
+        8.37,
+        7.12,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          6.8,
+          6.84
+        ],
+        "axis": "z",
+        "angle": 20,
+        "rescale": true
+      }
+    },
+    {
+      "name": "golden shaft rune 2",
+      "from": [
+        7.63,
+        7.550000000000001,
+        6.78
+      ],
+      "to": [
+        8.37,
+        8.17,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        }
+      },
+      "shade": false
+    },
+    {
+      "name": "golden shaft rune 3",
+      "from": [
+        7.63,
+        8.600000000000001,
+        6.78
+      ],
+      "to": [
+        8.37,
+        9.22,
+        6.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          8.900000000000002,
+          6.84
+        ],
+        "axis": "z",
+        "angle": 20,
+        "rescale": true
+      }
+    },
+    {
+      "name": "garland upper left",
+      "from": [
+        6.6,
+        9.6,
+        6.75
+      ],
+      "to": [
+        7.45,
+        10.45,
+        7.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          7,
+          10,
+          6.9
+        ],
+        "axis": "z",
+        "angle": -25,
+        "rescale": true
+      }
+    },
+    {
+      "name": "garland upper right",
+      "from": [
+        8.55,
+        9,
+        6.7
+      ],
+      "to": [
+        9.35,
+        9.9,
+        7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          9,
+          9.4,
+          6.85
+        ],
+        "axis": "z",
+        "angle": 25,
+        "rescale": true
+      }
+    },
+    {
+      "name": "garland middle left",
+      "from": [
+        6.65,
+        8.15,
+        6.8
+      ],
+      "to": [
+        7.35,
+        8.9,
+        7.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          7,
+          8.5,
+          6.92
+        ],
+        "axis": "z",
+        "angle": -30,
+        "rescale": true
+      }
+    },
+    {
+      "name": "garland middle right",
+      "from": [
+        8.65,
+        7.35,
+        6.78
+      ],
+      "to": [
+        9.4,
+        8.15,
+        7.04
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          9,
+          7.75,
+          6.9
+        ],
+        "axis": "z",
+        "angle": 30,
+        "rescale": true
+      }
+    },
+    {
+      "name": "holly left",
+      "from": [
+        6.35,
+        9.3,
+        6.2
+      ],
+      "to": [
+        7,
+        9.95,
+        6.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "holly right",
+      "from": [
+        9,
+        8.85,
+        6.2
+      ],
+      "to": [
+        9.65,
+        9.5,
+        6.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "central metal chassis",
+      "from": [
+        6.15,
+        11.35,
+        5.65
+      ],
+      "to": [
+        9.85,
+        14.25,
+        10.35
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "south": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "east": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "west": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "up": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        },
+        "down": {
+          "uv": [
+            12,
+            0,
+            16,
+            4
+          ],
+          "texture": "#metal"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "gold front frame",
+      "from": [
+        6.25,
+        11.5,
+        5.25
+      ],
+      "to": [
+        9.75,
+        14.05,
+        5.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "crown cap",
+      "from": [
+        6.55,
+        13.55,
+        5.25
+      ],
+      "to": [
+        9.45,
+        14.72,
+        8.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "candy cane head ring",
+      "from": [
+        6.3,
+        13.25,
+        5.2
+      ],
+      "to": [
+        9.7,
+        13.7,
+        5.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "lower gold frame",
+      "from": [
+        6.55,
+        11.15,
+        5.2
+      ],
+      "to": [
+        9.45,
+        11.72,
+        5.9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "red energy core",
+      "from": [
+        7.15,
+        10.95,
+        4.78
+      ],
+      "to": [
+        8.85,
+        12.65,
+        5.45
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "gold bezel",
+      "from": [
+        6.92,
+        10.75,
+        4.7
+      ],
+      "to": [
+        9.08,
+        12.88,
+        5.02
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "left blade socket",
+      "from": [
+        5.65,
+        12.1,
+        5.2
+      ],
+      "to": [
+        6.55,
+        13.38,
+        10.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "right blade socket",
+      "from": [
+        9.45,
+        12.1,
+        5.2
+      ],
+      "to": [
+        10.35,
+        13.38,
+        10.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "front bolt L",
+      "from": [
+        5.55,
+        12.45,
+        4.95
+      ],
+      "to": [
+        6,
+        12.9,
+        5.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "front bolt R",
+      "from": [
+        10,
+        12.45,
+        4.95
+      ],
+      "to": [
+        10.45,
+        12.9,
+        5.3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "left rear bolt",
+      "from": [
+        5.7,
+        12.45,
+        10.65
+      ],
+      "to": [
+        6.15,
+        12.9,
+        11
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "right rear bolt",
+      "from": [
+        9.85,
+        12.45,
+        10.65
+      ],
+      "to": [
+        10.3,
+        12.9,
+        11
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "left ruby inner",
+      "from": [
+        3.7,
+        11.75,
+        6.15
+      ],
+      "to": [
+        6.45,
+        13.75,
+        9.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          5.05,
+          12.75,
+          8
+        ],
+        "axis": "z",
+        "angle": -5,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left ruby middle",
+      "from": [
+        1.8,
+        12,
+        6.2
+      ],
+      "to": [
+        4.25,
+        14,
+        9.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          3,
+          13,
+          8
+        ],
+        "axis": "z",
+        "angle": -13,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left ruby tip",
+      "from": [
+        0.45,
+        11.5,
+        6.35
+      ],
+      "to": [
+        2.45,
+        13.35,
+        9.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          1.45,
+          12.4,
+          8
+        ],
+        "axis": "z",
+        "angle": -23,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right ruby inner",
+      "from": [
+        9.55,
+        11.75,
+        6.15
+      ],
+      "to": [
+        12.3,
+        13.75,
+        9.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          10.95,
+          12.75,
+          8
+        ],
+        "axis": "z",
+        "angle": 5,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right ruby middle",
+      "from": [
+        11.75,
+        12,
+        6.2
+      ],
+      "to": [
+        14.2,
+        14,
+        9.8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          13,
+          13,
+          8
+        ],
+        "axis": "z",
+        "angle": 13,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right ruby tip",
+      "from": [
+        13.55,
+        11.5,
+        6.35
+      ],
+      "to": [
+        15.55,
+        13.35,
+        9.65
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            4
+          ],
+          "texture": "#blade"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          14.55,
+          12.4,
+          8
+        ],
+        "axis": "z",
+        "angle": 23,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left ice ridge inner",
+      "from": [
+        3.75,
+        13.3,
+        5.95
+      ],
+      "to": [
+        6.6,
+        14.05,
+        10.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          5.1,
+          13.7,
+          8
+        ],
+        "axis": "z",
+        "angle": -5,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left ice ridge outer",
+      "from": [
+        0.55,
+        12.85,
+        6.05
+      ],
+      "to": [
+        4.2,
+        13.72,
+        9.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          2.35,
+          13.3,
+          8
+        ],
+        "axis": "z",
+        "angle": -14,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right ice ridge inner",
+      "from": [
+        9.4,
+        13.3,
+        5.95
+      ],
+      "to": [
+        12.25,
+        14.05,
+        10.05
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          10.9,
+          13.7,
+          8
+        ],
+        "axis": "z",
+        "angle": 5,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right ice ridge outer",
+      "from": [
+        11.8,
+        12.85,
+        6.05
+      ],
+      "to": [
+        15.45,
+        13.72,
+        9.95
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "up": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        },
+        "down": {
+          "uv": [
+            4,
+            0,
+            8,
+            4
+          ],
+          "texture": "#ice"
+        }
+      },
+      "shade": true,
+      "rotation": {
+        "origin": [
+          13.65,
+          13.3,
+          8
+        ],
+        "axis": "z",
+        "angle": 14,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 0",
+      "from": [
+        0.75,
+        10,
+        7
+      ],
+      "to": [
+        1.25,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          1,
+          10.925,
+          8
+        ],
+        "axis": "z",
+        "angle": 0,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 1",
+      "from": [
+        1.9500000000000002,
+        10.4,
+        7
+      ],
+      "to": [
+        2.45,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2.2,
+          11.125,
+          8
+        ],
+        "axis": "z",
+        "angle": -8,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 2",
+      "from": [
+        3.25,
+        10.200000000000001,
+        7
+      ],
+      "to": [
+        3.75,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          3.5,
+          11.025,
+          8
+        ],
+        "axis": "z",
+        "angle": 0,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 3",
+      "from": [
+        4.3500000000000005,
+        10.6,
+        7
+      ],
+      "to": [
+        4.8500000000000005,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          4.6000000000000005,
+          11.225,
+          8
+        ],
+        "axis": "z",
+        "angle": -12,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 4",
+      "from": [
+        11.549999999999999,
+        10.6,
+        7
+      ],
+      "to": [
+        12.049999999999999,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          11.799999999999999,
+          11.225,
+          8
+        ],
+        "axis": "z",
+        "angle": 12,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 5",
+      "from": [
+        12.649999999999999,
+        10.200000000000001,
+        7
+      ],
+      "to": [
+        13.149999999999999,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          12.899999999999999,
+          11.025,
+          8
+        ],
+        "axis": "z",
+        "angle": 0,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 6",
+      "from": [
+        13.95,
+        10.4,
+        7
+      ],
+      "to": [
+        14.45,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          14.2,
+          11.125,
+          8
+        ],
+        "axis": "z",
+        "angle": 8,
+        "rescale": true
+      }
+    },
+    {
+      "name": "ice tooth 7",
+      "from": [
+        14.95,
+        10,
+        7
+      ],
+      "to": [
+        15.45,
+        11.55,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          15.2,
+          10.925,
+          8
+        ],
+        "axis": "z",
+        "angle": 0,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left outer icicle",
+      "from": [
+        0.15,
+        10.65,
+        7.15
+      ],
+      "to": [
+        0.85,
+        12,
+        8.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          0.5,
+          11.3,
+          8
+        ],
+        "axis": "z",
+        "angle": -12,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right outer icicle",
+      "from": [
+        15.15,
+        10.65,
+        7.15
+      ],
+      "to": [
+        15.85,
+        12,
+        8.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "south": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "east": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "west": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "up": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        },
+        "down": {
+          "uv": [
+            4,
+            12,
+            8,
+            16
+          ],
+          "texture": "#icicle"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          15.5,
+          11.3,
+          8
+        ],
+        "axis": "z",
+        "angle": 12,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left energy vein inner",
+      "from": [
+        2.2,
+        12.45,
+        5.98
+      ],
+      "to": [
+        6,
+        12.62,
+        6.12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          4.1,
+          12.55,
+          6.05
+        ],
+        "axis": "z",
+        "angle": -7,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left energy vein outer",
+      "from": [
+        0.9,
+        12.7,
+        6.05
+      ],
+      "to": [
+        3.4,
+        12.86,
+        6.18
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          2.1,
+          12.8,
+          6.11
+        ],
+        "axis": "z",
+        "angle": -17,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right energy vein inner",
+      "from": [
+        10,
+        12.45,
+        5.98
+      ],
+      "to": [
+        13.8,
+        12.62,
+        6.12
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          11.9,
+          12.55,
+          6.05
+        ],
+        "axis": "z",
+        "angle": 7,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right energy vein outer",
+      "from": [
+        12.6,
+        12.7,
+        6.05
+      ],
+      "to": [
+        15.1,
+        12.86,
+        6.18
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          13.9,
+          12.8,
+          6.11
+        ],
+        "axis": "z",
+        "angle": 17,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left blade rune",
+      "from": [
+        3,
+        12.35,
+        5.98
+      ],
+      "to": [
+        4,
+        13,
+        6.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          3.5,
+          12.68,
+          6.04
+        ],
+        "axis": "z",
+        "angle": -8,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right blade rune",
+      "from": [
+        12,
+        12.35,
+        5.98
+      ],
+      "to": [
+        13,
+        13,
+        6.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "south": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "east": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "west": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "up": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        },
+        "down": {
+          "uv": [
+            8,
+            8,
+            12,
+            12
+          ],
+          "texture": "#rune"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          12.5,
+          12.68,
+          6.04
+        ],
+        "axis": "z",
+        "angle": 8,
+        "rescale": true
+      }
+    },
+    {
+      "name": "left snow etching",
+      "from": [
+        4.3,
+        12.72,
+        5.98
+      ],
+      "to": [
+        4.95,
+        13.35,
+        6.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "south": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "east": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "west": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "up": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "down": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        }
+      },
+      "shade": false
+    },
+    {
+      "name": "right snow etching",
+      "from": [
+        11.05,
+        12.72,
+        5.98
+      ],
+      "to": [
+        11.7,
+        13.35,
+        6.1
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "south": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "east": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "west": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "up": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        },
+        "down": {
+          "uv": [
+            12,
+            12,
+            16,
+            16
+          ],
+          "texture": "#frost"
+        }
+      },
+      "shade": false
+    },
+    {
+      "name": "left candy cuff",
+      "from": [
+        6,
+        11.65,
+        5.15
+      ],
+      "to": [
+        6.52,
+        13.15,
+        5.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "right candy cuff",
+      "from": [
+        9.48,
+        11.65,
+        5.15
+      ],
+      "to": [
+        10,
+        13.15,
+        5.85
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "south": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "east": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "west": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "up": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        },
+        "down": {
+          "uv": [
+            4,
+            8,
+            8,
+            12
+          ],
+          "texture": "#candy"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "left sleigh bell",
+      "from": [
+        5.95,
+        10.85,
+        5
+      ],
+      "to": [
+        6.72,
+        11.62,
+        5.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "south": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "east": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "west": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "up": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "down": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "right sleigh bell",
+      "from": [
+        9.28,
+        10.85,
+        5
+      ],
+      "to": [
+        10.05,
+        11.62,
+        5.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "south": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "east": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "west": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "up": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        },
+        "down": {
+          "uv": [
+            0,
+            12,
+            4,
+            16
+          ],
+          "texture": "#bell"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "left holly on head",
+      "from": [
+        6.05,
+        10.55,
+        5.55
+      ],
+      "to": [
+        6.85,
+        11.25,
+        6.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          6.4,
+          10.9,
+          5.8
+        ],
+        "axis": "z",
+        "angle": -25,
+        "rescale": true
+      }
+    },
+    {
+      "name": "right holly on head",
+      "from": [
+        9.15,
+        10.55,
+        5.55
+      ],
+      "to": [
+        9.95,
+        11.25,
+        6.2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "south": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "east": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "west": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "up": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        },
+        "down": {
+          "uv": [
+            12,
+            4,
+            16,
+            8
+          ],
+          "texture": "#green"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          9.6,
+          10.9,
+          5.8
+        ],
+        "axis": "z",
+        "angle": 25,
+        "rescale": true
+      }
+    },
+    {
+      "name": "star jewel center",
+      "from": [
+        7.48,
+        13.55,
+        4.35
+      ],
+      "to": [
+        8.52,
+        14.55,
+        4.92
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8,
+          14.05,
+          4.63
+        ],
+        "axis": "z",
+        "angle": 45,
+        "rescale": true
+      }
+    },
+    {
+      "name": "star north ray",
+      "from": [
+        7.78,
+        14.35,
+        4.28
+      ],
+      "to": [
+        8.22,
+        15.55,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "star south ray",
+      "from": [
+        7.78,
+        12.85,
+        4.28
+      ],
+      "to": [
+        8.22,
+        14.05,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "star left ray",
+      "from": [
+        6.85,
+        13.82,
+        4.28
+      ],
+      "to": [
+        8.05,
+        14.22,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "star right ray",
+      "from": [
+        7.95,
+        13.82,
+        4.28
+      ],
+      "to": [
+        9.15,
+        14.22,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "up": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        },
+        "down": {
+          "uv": [
+            8,
+            0,
+            12,
+            4
+          ],
+          "texture": "#gold"
+        }
+      },
+      "shade": true
+    },
+    {
+      "name": "star upper-left ray",
+      "from": [
+        7.05,
+        14.35,
+        4.32
+      ],
+      "to": [
+        7.8,
+        15.05,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          7.43,
+          14.7,
+          4.52
+        ],
+        "axis": "z",
+        "angle": -45,
+        "rescale": true
+      }
+    },
+    {
+      "name": "star upper-right ray",
+      "from": [
+        8.2,
+        14.35,
+        4.32
+      ],
+      "to": [
+        8.95,
+        15.05,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8.57,
+          14.7,
+          4.52
+        ],
+        "axis": "z",
+        "angle": 45,
+        "rescale": true
+      }
+    },
+    {
+      "name": "star lower-left ray",
+      "from": [
+        7.05,
+        13.05,
+        4.32
+      ],
+      "to": [
+        7.8,
+        13.75,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          7.43,
+          13.4,
+          4.52
+        ],
+        "axis": "z",
+        "angle": 45,
+        "rescale": true
+      }
+    },
+    {
+      "name": "star lower-right ray",
+      "from": [
+        8.2,
+        13.05,
+        4.32
+      ],
+      "to": [
+        8.95,
+        13.75,
+        4.72
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "south": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "east": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "west": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "up": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        },
+        "down": {
+          "uv": [
+            0,
+            8,
+            4,
+            12
+          ],
+          "texture": "#star"
+        }
+      },
+      "shade": false,
+      "rotation": {
+        "origin": [
+          8.57,
+          13.4,
+          4.52
+        ],
+        "axis": "z",
+        "angle": -45,
+        "rescale": true
+      }
+    },
+    {
+      "name": "star energy center",
+      "from": [
+        7.72,
+        13.82,
+        4.18
+      ],
+      "to": [
+        8.28,
+        14.38,
+        4.36
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "south": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "east": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "west": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "up": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        },
+        "down": {
+          "uv": [
+            12,
+            8,
+            16,
+            12
+          ],
+          "texture": "#energy"
+        }
+      },
+      "shade": false
+    },
+    {
+      "name": "pommel star shine",
+      "from": [
+        7.72,
+        0.16,
+        6.55
+      ],
+      "to": [
+        8.28,
+        0.62,
+        6.7
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "south": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "east": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "west": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "up": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        },
+        "down": {
+          "uv": [
+            8,
+            12,
+            12,
+            16
+          ],
+          "texture": "#brightgold"
+        }
+      },
+      "shade": false
+    }
+  ]
 }
