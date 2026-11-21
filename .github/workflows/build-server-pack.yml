@@ -142,8 +142,23 @@ jobs:
 
               # Validate every texture reference and the exact restored geometry.
               model_json = read_json(model_target)
-              if len(model_json.get("elements", [])) < 300:
-                  raise SystemExit("Expected the refined 3D Christmas model with real exterior lanterns and a filled road support.")
+              if len(model_json.get("elements", [])) < 400:
+                  raise SystemExit("Expected the smaller reindeer, detailed sleigh, closed lower support and four-corner 3D lanterns.")
+              if "pillar" not in model_json.get("textures", {}) or "sleighCushion" not in model_json.get("textures", {}):
+                  raise SystemExit("The new architectural pillar or sleigh upholstery texture mapping is missing.")
+              if any(face.get("texture") == "#hole"
+                     for element in model_json.get("elements", [])
+                     for face in element.get("faces", {}).values()):
+                  raise SystemExit("A flat lamp/bell sprite is still referenced by the Christmas model.")
+              if not any(element.get("from") == [-0.28, 6.75, 4.38]
+                         and abs(element.get("to", [0,0,0])[1] - 9.15) < 0.002
+                         for element in model_json.get("elements", [])):
+                  raise SystemExit("The solid fill does not reach the underside of the elk display floor.")
+              if max(element["to"][1] for element in model_json["elements"][111:201]) >= 14.0:
+                  raise SystemExit("The two reindeer were not reduced to the requested smaller scale.")
+              if not any(element.get("from") == [1.82, 9.27, 5.72]
+                         for element in model_json.get("elements", [])):
+                  raise SystemExit("The upgraded sleigh runner details are missing.")
               for key,value in model_json.get("textures", {}).items():
                   if not isinstance(value, str) or value.startswith("#"):
                       continue
@@ -193,10 +208,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste
+          git add MAU_Spezialpapier_CMD_1001_1.21.11.zip assets/minecraft/models/custom/maumod/mausmp/weihnachtskiste/double_chest.json assets/minecraft/textures/custom/maumod/mausmp/weihnachtskiste scripts/refine_christmas_crate.py
           if git diff --cached --quiet; then
             echo "Server pack ZIP was already current."
           else
-            git commit -m "Build server pack with refined Christmas lanterns and solid base"
+            git commit -m "Build server pack with smaller reindeer, detailed sleigh and 3D lanterns"
             git push origin HEAD:main
           fi
